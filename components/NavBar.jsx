@@ -1,4 +1,4 @@
-import { logo, profile } from '@/assets/images'
+import { logoWhite, profile } from '@/assets/images'
 import Image from 'next/image'
 
 const NavBar = () => {
@@ -37,10 +37,10 @@ const NavBar = () => {
           <div className='flex flex-1 items-center justify-center md:items-stretch md:justify-start'>
             {/* <!-- Logo --> */}
             <a className='flex flex-shrink-0 items-center' href='/index.html'>
-              <Image className='h-10 w-auto' src={logo} alt='PropertyPulse' />
+              <Image className='h-10 w-auto' src={logoWhite} alt='Kodisha' />
 
               <span className='hidden md:block text-white text-2xl font-bold ml-2'>
-                PropertyPulse
+                Kodisha
               </span>
             </a>
             {/* <!-- Desktop Menu Hidden below md screens --> */}
