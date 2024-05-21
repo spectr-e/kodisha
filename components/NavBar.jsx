@@ -7,6 +7,7 @@ import { FaGoogle } from 'react-icons/fa'
 
 const NavBar = () => {
   const [openMobileMenu, setOpenMobileMenu] = useState(false)
+  const [openProfile, setOpenProfile] = useState(false)
 
   return (
     <nav className='bg-blue-700 border-b border-blue-500'>
@@ -50,6 +51,7 @@ const NavBar = () => {
                 Kodisha
               </span>
             </Link>
+
             {/* <!-- Desktop Menu Hidden below md screens --> */}
             <div className='hidden md:ml-6 md:block'>
               <div className='flex space-x-2'>
@@ -87,7 +89,8 @@ const NavBar = () => {
 
           {/* <!-- Right Side Menu (Logged In) --> */}
           <div className='absolute inset-y-0 right-0 flex items-center pr-2 md:static md:inset-auto md:ml-6 md:pr-0'>
-            <Link href='/messages' className='relative group'>
+            {/* <!-- Notifications button --> */}
+            <Link href='/notifications' className='relative group'>
               <button
                 type='button'
                 className='relative rounded-full bg-gray-800 p-1 text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800'
@@ -114,10 +117,12 @@ const NavBar = () => {
                 {/* <!-- Replace with the actual number of notifications --> */}
               </span>
             </Link>
+
             {/* <!-- Profile dropdown button --> */}
             <div className='relative ml-3'>
               <div>
                 <button
+                  onClick={() => setOpenProfile((prev) => !prev)}
                   type='button'
                   className='relative flex rounded-full bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800'
                   id='user-menu-button'
@@ -135,41 +140,43 @@ const NavBar = () => {
               </div>
 
               {/* <!-- Profile dropdown --> */}
-              <div
-                id='user-menu'
-                className='hidden absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none'
-                role='menu'
-                aria-orientation='vertical'
-                aria-labelledby='user-menu-button'
-                tabIndex='-1'
-              >
-                <Link
-                  href='/profile'
-                  className='block px-4 py-2 text-sm text-gray-700'
-                  role='menuitem'
+              {openProfile && (
+                <div
+                  id='user-menu'
+                  className='absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none'
+                  role='menu'
+                  aria-orientation='vertical'
+                  aria-labelledby='user-menu-button'
                   tabIndex='-1'
-                  id='user-menu-item-0'
                 >
-                  Your Profile
-                </Link>
-                <Link
-                  href='/properties/saved'
-                  className='block px-4 py-2 text-sm text-gray-700'
-                  role='menuitem'
-                  tabIndex='-1'
-                  id='user-menu-item-2'
-                >
-                  Saved Properties
-                </Link>
-                <button
-                  className='block px-4 py-2 text-sm text-gray-700'
-                  role='menuitem'
-                  tabIndex='-1'
-                  id='user-menu-item-2'
-                >
-                  Sign Out
-                </button>
-              </div>
+                  <Link
+                    href='/profile'
+                    className='block px-4 py-2 text-sm text-gray-700'
+                    role='menuitem'
+                    tabIndex='-1'
+                    id='user-menu-item-0'
+                  >
+                    Your Profile
+                  </Link>
+                  <Link
+                    href='/properties/saved'
+                    className='block px-4 py-2 text-sm text-gray-700'
+                    role='menuitem'
+                    tabIndex='-1'
+                    id='user-menu-item-2'
+                  >
+                    Saved Properties
+                  </Link>
+                  <button
+                    className='block px-4 py-2 text-sm text-gray-700'
+                    role='menuitem'
+                    tabIndex='-1'
+                    id='user-menu-item-2'
+                  >
+                    Sign Out
+                  </button>
+                </div>
+              )}
             </div>
           </div>
         </div>
