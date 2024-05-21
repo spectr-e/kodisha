@@ -1,9 +1,9 @@
+import '@/assets/styles/globals.css'
+
 const MainLayout = ({ children }) => {
   return (
     <html lang='en'>
-      <body>
-        <div>{children}</div>
-      </body>
+      <body>{children}</body>
     </html>
   )
 }
