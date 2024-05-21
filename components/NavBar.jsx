@@ -37,10 +37,7 @@ const NavBar = () => {
 
           <div className='flex flex-1 items-center justify-center md:items-stretch md:justify-start'>
             {/* <!-- Logo --> */}
-            <Link
-              className='flex flex-shrink-0 items-center'
-              href='/index.html'
-            >
+            <Link className='flex flex-shrink-0 items-center' href='/'>
               <Image className='h-10 w-auto' src={logoWhite} alt='Kodisha' />
 
               <span className='hidden md:block text-white text-2xl font-bold ml-2'>
@@ -51,7 +48,7 @@ const NavBar = () => {
             <div className='hidden md:ml-6 md:block'>
               <div className='flex space-x-2'>
                 <Link
-                  href='/index.html'
+                  href='/'
                   className='text-white bg-black hover:bg-gray-900 hover:text-white rounded-md px-3 py-2'
                 >
                   Home
@@ -84,7 +81,7 @@ const NavBar = () => {
 
           {/* <!-- Right Side Menu (Logged In) --> */}
           <div className='absolute inset-y-0 right-0 flex items-center pr-2 md:static md:inset-auto md:ml-6 md:pr-0'>
-            <Link href='messages.html' className='relative group'>
+            <Link href='/messages' className='relative group'>
               <button
                 type='button'
                 className='relative rounded-full bg-gray-800 p-1 text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800'
@@ -141,7 +138,7 @@ const NavBar = () => {
                 tabIndex='-1'
               >
                 <Link
-                  href='/profile.html'
+                  href='/profile'
                   className='block px-4 py-2 text-sm text-gray-700'
                   role='menuitem'
                   tabIndex='-1'
@@ -150,7 +147,7 @@ const NavBar = () => {
                   Your Profile
                 </Link>
                 <Link
-                  href='saved-properties.html'
+                  href='/properties/saved'
                   className='block px-4 py-2 text-sm text-gray-700'
                   role='menuitem'
                   tabIndex='-1'
@@ -158,15 +155,14 @@ const NavBar = () => {
                 >
                   Saved Properties
                 </Link>
-                <Link
-                  href='#'
+                <button
                   className='block px-4 py-2 text-sm text-gray-700'
                   role='menuitem'
                   tabIndex='-1'
                   id='user-menu-item-2'
                 >
                   Sign Out
-                </Link>
+                </button>
               </div>
             </div>
           </div>
@@ -177,7 +173,7 @@ const NavBar = () => {
       <div className='hidden' id='mobile-menu'>
         <div className='space-y-1 px-2 pb-3 pt-2'>
           <Link
-            href='/index.html'
+            href='/'
             className='bg-gray-900 text-white block rounded-md px-3 py-2 text-base font-medium'
           >
             Home
