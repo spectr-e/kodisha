@@ -1,3 +1,4 @@
+import { a1 } from '@/assets/images/properties'
 import Image from 'next/image'
 import Link from 'next/link'
 import {
@@ -11,7 +12,7 @@ import {
 const PropCard = ({ property }) => {
   return (
     <div className='relative shadow-md rounded-xl'>
-      <Image src='' alt='' className='w-full h-auto rounded-t-xl' />
+      <Image src={a1} alt='' className='w-full h-auto rounded-t-xl' />
       <div className='p-4'>
         <div className='mb-6 text-left md:text-center lg:text-left'>
           <div className='text-gray-600'>Apartment</div>
