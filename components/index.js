@@ -2,4 +2,5 @@ import NavBar from './NavBar'
 import Hero from './Hero'
 import InfoBoxes from './InfoBoxes'
 import Footer from './Footer'
-export { Footer, NavBar, InfoBoxes, Hero }
+import PropCard from './PropCard'
+export { PropCard, Footer, NavBar, InfoBoxes, Hero }
