@@ -8,7 +8,7 @@ import {
   FaRulerCombined,
 } from 'react-icons/fa'
 
-const PropCard = () => {
+const PropCard = ({ property }) => {
   return (
     <div className='relative shadow-md rounded-xl'>
       <Image src='' alt='' className='w-full h-auto rounded-t-xl' />
