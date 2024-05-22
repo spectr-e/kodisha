@@ -2,6 +2,35 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.2](https://github.com/spectr-e/kodisha/compare/v0.1.1...v0.1.2) (2024-05-22)
+
+
+### Features
+
+* **assets:** Bring in the properties data ([933ffc2](https://github.com/spectr-e/kodisha/commit/933ffc2cf6477d70f7989e7ba62e68cd9b740838))
+* **assets:** Bring in the properties images ([695bd51](https://github.com/spectr-e/kodisha/commit/695bd515641390ef094280d90cb7b75c45506864))
+* **assets:** Move the properties into its own folder ([f75cc7a](https://github.com/spectr-e/kodisha/commit/f75cc7a8d7ff2727e3ec5d22190332dcb612c689))
+* **components/PropCard:** Create a card to display a property's details ([eb96b02](https://github.com/spectr-e/kodisha/commit/eb96b0253813a1e4c0d55849594f696149616d48))
+* **Footer:** Generate starter code for the footer and import to main app ([b4ca986](https://github.com/spectr-e/kodisha/commit/b4ca98690f9b3bb39d5fa36fd6f511329b07d40d))
+* **InfoBox:** Create dynamic code for infoboxes ([ad650cf](https://github.com/spectr-e/kodisha/commit/ad650cf6e51f278b0865a751c27c6389fab58644))
+
+
+### Bug Fixes
+
+* **assets:** Remove all the properties to public ([3f9acad](https://github.com/spectr-e/kodisha/commit/3f9acad8a465dc9d67bbdcc1cac47fc674fac636))
+* **component/PropCard:** Display the location dynamically ([705d20a](https://github.com/spectr-e/kodisha/commit/705d20ae298fef30fda84604c9cd8ec7494254d1))
+* **component/PropCard:** Display the type of charges dynamically ([6d931e3](https://github.com/spectr-e/kodisha/commit/6d931e3802496c7d851f407775dd904be8f1e85f))
+* **component/PropCard:** Make some content dynamic ([492cfc2](https://github.com/spectr-e/kodisha/commit/492cfc2fffe85e5b41f47f8497328c0c9f21efc5))
+* **component/PropCard:** Make the amenities display dynamic ([ec43551](https://github.com/spectr-e/kodisha/commit/ec4355108aab680e8712d9e36be6b71d217338bb))
+* **component/PropCard:** Make the rate display dynamic ([ec15c95](https://github.com/spectr-e/kodisha/commit/ec15c9586ae04c6f0550a85532255d3ffaa38e75))
+* **components/PropCard:** Edit the code to change html into jsx & import react-icons ([027fa2c](https://github.com/spectr-e/kodisha/commit/027fa2cc2c4f111c2fe114d3e47cd016af7c167e))
+* **data:** Update the apartment image ref names in the json file ([0a23b32](https://github.com/spectr-e/kodisha/commit/0a23b32e6f0067f39a13de40a041f7488fec7891))
+* **Footer:** Get rid of links & make the year dynamic ([e59a984](https://github.com/spectr-e/kodisha/commit/e59a984cb7b239fd377eaf900c946d6ae246f533))
+* **Footer:** Import defautl theme code with appropriate changes ([4c3f94b](https://github.com/spectr-e/kodisha/commit/4c3f94b4b6af98bf8705dd7d14f6d334d1fb12cc))
+* **InfoBoxes:** Refactor the code to include infobox component ([58a3342](https://github.com/spectr-e/kodisha/commit/58a3342754ccbbd4cd027cd0949ea43ef3d44238))
+* **Layout:** Import footer into file, remove from homepage ([1804dab](https://github.com/spectr-e/kodisha/commit/1804dab87a8c53187a63184aad79f18b28ce5520))
+* **Properties:** Import properties data & do a dummy display ([fd7aacb](https://github.com/spectr-e/kodisha/commit/fd7aacbd42482dfb4ea11526475331a81ef1fbd0))
+
 ### 0.1.1 (2024-05-22)
 
 
