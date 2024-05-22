@@ -13,7 +13,7 @@
     },
     "beds": 2,
     "baths": 1,
-    "square_feet": 1500,
+    "sq": 1500,
     "amenities": [
       "Wifi",
       "Full kitchen",
@@ -58,7 +58,7 @@
     },
     "beds": 1,
     "baths": 1,
-    "square_feet": 1800,
+    "sq": 1800,
     "amenities": [
       "Wifi",
       "Full kitchen",
@@ -102,7 +102,7 @@
     },
     "beds": 3,
     "baths": 2,
-    "square_feet": 2200,
+    "sq": 2200,
     "amenities": [
       "Wifi",
       "Full kitchen",
@@ -148,7 +148,7 @@
     },
     "beds": 1,
     "baths": 1,
-    "square_feet": 900,
+    "sq": 900,
     "amenities": [
       "Fireplace",
       "Outdoor Grill/BBQ",
@@ -182,7 +182,7 @@
     },
     "beds": 1,
     "baths": 1,
-    "square_feet": 900,
+    "sq": 900,
     "amenities": [
       "High-Speed Internet",
       "Smart TV",
@@ -218,7 +218,7 @@
     },
     "beds": 4,
     "baths": 3,
-    "square_feet": 2800,
+    "sq": 2800,
     "amenities": [
       "Beach Access",
       "Swimming Pool",
@@ -254,7 +254,7 @@
     },
     "beds": 2,
     "baths": 1,
-    "square_feet": 1100,
+    "sq": 1100,
     "amenities": [
       "Fireplace",
       "Outdoor Grill/BBQ",
@@ -289,7 +289,7 @@
     },
     "beds": 3,
     "baths": 2,
-    "square_feet": 1800,
+    "sq": 1800,
     "amenities": [
       "Ski Equipment Storage",
       "Fireplace",
@@ -324,7 +324,7 @@
     },
     "beds": 4,
     "baths": 3,
-    "square_feet": 2400,
+    "sq": 2400,
     "amenities": [
       "Mountain View",
       "Hiking Trails Access",
@@ -360,7 +360,7 @@
     },
     "beds": 2,
     "baths": 1,
-    "square_feet": 1200,
+    "sq": 1200,
     "amenities": [
       "High-Speed Internet",
       "Air Conditioning",

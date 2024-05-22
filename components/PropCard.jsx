@@ -41,14 +41,16 @@ const PropCard = ({ property }) => {
 
         <div className='flex justify-center gap-4 mb-4 text-gray-500'>
           <p>
-            <FaBed /> 3 <span className='md:hidden lg:inline'>beds</span>
+            <FaBed /> {property.beds}{' '}
+            <span className='md:hidden lg:inline'>beds</span>
           </p>
           <p>
-            <FaBath /> 2 <span className='md:hidden lg:inline'>baths</span>
+            <FaBath /> {property.baths}{' '}
+            <span className='md:hidden lg:inline'>baths</span>
           </p>
           <p>
             <FaRulerCombined />
-            1,500 <span className='md:hidden lg:inline'>sq</span>
+            {property.sq} <span className='md:hidden lg:inline'>sq</span>
           </p>
         </div>
 
