@@ -77,10 +77,13 @@ const PropCard = ({ property }) => {
         <div className='flex flex-col justify-between mb-4 lg:flex-row'>
           <div className='flex gap-2 mb-4 align-middle lg:mb-0'>
             <FaLocationArrow className='text-lg text-orange-700' />
-            <span className='text-orange-700'> Boston MA </span>
+            <span className='text-orange-700'>
+              {' '}
+              {property.location.city} {property.location.state}{' '}
+            </span>
           </div>
           <Link
-            href='/property'
+            href={`/properties/${property.id}`}
             className='h-[36px] bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-lg text-center text-sm'
           >
             Details
