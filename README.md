@@ -2,7 +2,7 @@
 
 ## Overview
 
-Kodisha is a rental application built using Next.js v14, designed to provide users with a seamless experience in searching and listing rental properties. The application utilizes Next Auth for authentication, Google Provider for authentication, and MongoDB for database storage. Key features include bookmarking properties, featured properties, rate settings, image uploads, and map integration.
+Kodisha is a rental application built using Next.js v14, designed to provide users with a seamless experience in searching and listing rental properties.
 
 ## Features
 
