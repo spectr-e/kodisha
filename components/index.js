@@ -1,2 +1,3 @@
 import NavBar from './NavBar'
-export { NavBar }
+import Hero from './Hero'
+export { NavBar, Hero }
