@@ -1,5 +1,5 @@
 import '@/assets/styles/globals.css'
-import { NavBar } from '@/components'
+import { Footer, NavBar } from '@/components'
 
 export const metadata = {
   title: 'Kodisha | Find The Perfect Rental',
@@ -14,6 +14,8 @@ const MainLayout = ({ children }) => {
       <body>
         <NavBar />
         {children}
+        {/* <!-- Footer --> */}
+        <Footer />
       </body>
     </html>
   )

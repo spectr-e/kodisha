@@ -1,14 +1,12 @@
-import { Footer, Hero, InfoBoxes } from '@/components'
+import { Hero, InfoBoxes } from '@/components'
 
 const HomePage = () => {
   return (
     <>
       {/* <!-- Hero --> */}
       <Hero />
-      {/* <!-- Rental List --> */}
+      {/* <!-- For Renters & Owners --> */}
       <InfoBoxes />
-      {/* <!-- Footer --> */}
-      <Footer />
     </>
   )
 }
