@@ -3,7 +3,7 @@ import Link from 'next/link'
 import {
   FaBath,
   FaBed,
-  FaLocationArrow,
+  FaMapMarker,
   FaMoneyBill,
   FaRulerCombined,
 } from 'react-icons/fa'
@@ -57,17 +57,17 @@ const PropCard = ({ property }) => {
         <div className='flex justify-center gap-4 mb-4 text-sm text-green-900'>
           {property.rates.nightly && (
             <p>
-              <FaMoneyBill /> Nightly
+              <FaMoneyBill className='inline mr-2' /> Nightly
             </p>
           )}
           {property.rates.weekly && (
             <p>
-              <FaMoneyBill /> Weekly
+              <FaMoneyBill className='inline mr-2' /> Weekly
             </p>
           )}
           {property.rates.monthly && (
             <p>
-              <FaMoneyBill /> Monthly
+              <FaMoneyBill className='inline mr-2' /> Monthly
             </p>
           )}
         </div>
@@ -76,7 +76,7 @@ const PropCard = ({ property }) => {
 
         <div className='flex flex-col justify-between mb-4 lg:flex-row'>
           <div className='flex gap-2 mb-4 align-middle lg:mb-0'>
-            <FaLocationArrow className='text-lg text-orange-700' />
+            <FaMapMarker className='text-lg text-orange-700' />
             <span className='text-orange-700'>
               {' '}
               {property.location.city} {property.location.state}{' '}
