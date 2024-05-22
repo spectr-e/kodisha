@@ -55,12 +55,21 @@ const PropCard = ({ property }) => {
         </div>
 
         <div className='flex justify-center gap-4 mb-4 text-sm text-green-900'>
-          <p>
-            <FaMoneyBill /> Weekly
-          </p>
-          <p>
-            <FaMoneyBill /> Monthly
-          </p>
+          {property.rates.nightly && (
+            <p>
+              <FaMoneyBill /> Nightly
+            </p>
+          )}
+          {property.rates.weekly && (
+            <p>
+              <FaMoneyBill /> Weekly
+            </p>
+          )}
+          {property.rates.monthly && (
+            <p>
+              <FaMoneyBill /> Monthly
+            </p>
+          )}
         </div>
 
         <div className='mb-5 border border-gray-100'></div>
