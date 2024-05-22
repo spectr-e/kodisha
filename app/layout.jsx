@@ -1,4 +1,5 @@
 import '@/assets/styles/globals.css'
+import { NavBar } from '@/components'
 
 export const metadata = {
   title: 'Kodisha | Find The Perfect Rental',
@@ -10,7 +11,10 @@ export const metadata = {
 const MainLayout = ({ children }) => {
   return (
     <html lang='en'>
-      <body>{children}</body>
+      <body>
+        <NavBar />
+        {children}
+      </body>
     </html>
   )
 }
