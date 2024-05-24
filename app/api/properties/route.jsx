@@ -5,9 +5,7 @@ import Property from '@/model/Property'
 export const GET = async (request) => {
   try {
     await connectDB()
-
     const properties = await Property.find({})
-
     return new Response(JSON.stringify(properties), {
       status: 200,
     })

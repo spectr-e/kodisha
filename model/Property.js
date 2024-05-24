@@ -20,7 +20,6 @@ const PropertySchema = new Schema(
 
     description: {
       type: String,
-      required: true,
     },
 
     location: {
@@ -56,7 +55,6 @@ const PropertySchema = new Schema(
     amenities: [
       {
         type: String,
-        required: true,
       },
     ],
 
