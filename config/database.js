@@ -1,4 +1,4 @@
-import mongoose from 'moongose'
+import mongoose from 'mongoose'
 
 let connected = false
 
@@ -18,7 +18,7 @@ const connectDB = async () => {
     connected = true
     console.log('DB connected')
   } catch (error) {
-    console.log('Error: not connected')
+    console.log('DB not connected')
   }
 }
 
