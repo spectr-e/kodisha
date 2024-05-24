@@ -1,4 +1,3 @@
-import { properties } from '@/assets/data'
 import { PropCard } from '@/components'
 
 const fetchProps = async () => {

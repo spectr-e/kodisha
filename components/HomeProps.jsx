@@ -1,8 +1,22 @@
-import { properties } from '@/assets/data'
 import { PropCard } from '.'
 import Link from 'next/link'
 
-const HomeProps = () => {
+const fetchProps = async () => {
+  try {
+    const response = await fetch(
+      `${process.env.NEXT_PUBLIC_API_DOMAIN}/properties`
+    )
+    if (!response.ok) {
+      throw new Error('Failed to fetch data')
+    }
+    return response.json()
+  } catch (error) {
+    console.log(error)
+  }
+}
+
+const HomeProps = async () => {
+  const properties = await fetchProps()
   const recentProps = properties
     .sort(() => Math.random() - Math.random())
     .slice(0, 3)
