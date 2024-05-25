@@ -40,7 +40,7 @@ const PropertyPage = () => {
     <>
       {!loading && property && (
         <>
-          <PropHeadImg img={property.images} />
+          <PropHeadImg img={property.images[0]} />
         </>
       )}
     </>
