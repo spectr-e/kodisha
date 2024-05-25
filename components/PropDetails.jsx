@@ -93,60 +93,12 @@ const PropDetails = ({ property }) => {
       {/* <!-- Amenities --> */}
       <div className='bg-white p-6 rounded-lg shadow-md mt-6'>
         <h3 className='text-lg font-bold mb-6'>Amenities</h3>
-        <ul className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 list-none'>
-          <li>
-            <FaCheck className='text-green-600 mr-2 mt-3' /> Wifi
-          </li>
-          <li>
-            <FaCheck className='text-green-600 mr-2 mt-3' /> Full kitchen
-          </li>
-          <li>
-            <FaCheck className='text-green-600 mr-2 mt-3' /> Washer & Dryer
-          </li>
-          <li>
-            <FaCheck className='text-green-600 mr-2 mt-3' />
-            Free Parking
-          </li>
-          <li>
-            <FaCheck className='text-green-600 mr-2 mt-3' />
-            Hot Tub
-          </li>
-          <li>
-            <FaCheck className='text-green-600 mr-2 mt-3' />
-            24/7 Security
-          </li>
-          <li>
-            <FaCheck className='text-green-600 mr-2 mt-3' />
-            Wheelchair Accessible
-          </li>
-          <li>
-            <FaCheck className='text-green-600 mr-2 mt-3' />
-            Elevator Access
-          </li>
-          <li>
-            <FaCheck className='text-green-600 mr-2 mt-3' />
-            Dishwasher
-          </li>
-          <li>
-            <FaCheck className='text-green-600 mr-2 mt-3' />
-            Gym/Fitness Center
-          </li>
-          <li>
-            <FaCheck className='text-green-600 mr-2 mt-3' />
-            Air Conditioning
-          </li>
-          <li>
-            <FaCheck className='text-green-600 mr-2 mt-3' />
-            Balcony/Patio
-          </li>
-          <li>
-            <FaCheck className='text-green-600 mr-2 mt-3' />
-            Smart TV
-          </li>
-          <li>
-            <FaCheck className='text-green-600 mr-2 mt-3' />
-            Coffee Maker
-          </li>
+        <ul className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 list-none space-y-2'>
+          {property.amenities.map((amenity, i) => (
+            <li key={i}>
+              <FaCheck className='text-green-600 inline-block mr-2' /> {amenity}
+            </li>
+          ))}
         </ul>
       </div>
 
