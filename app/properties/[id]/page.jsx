@@ -22,11 +22,20 @@ const PropertyPage = () => {
         setLoading(false)
       }
     }
-
     if (!property) {
       fetchData()
     }
   }, [id, property])
+
+  if (!property && !loading) {
+    return (
+      <h1 className='text-center text-2xl font-bold mt-10'>
+        Property not found
+      </h1>
+    )
+  }
+
+  return <>{!loading && property && <></>}</>
 }
 
 export default PropertyPage
