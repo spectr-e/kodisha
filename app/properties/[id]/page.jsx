@@ -10,10 +10,12 @@ import {
   FaBed,
   FaBookmark,
   FaCheck,
+  FaMapMarker,
   FaPaperPlane,
   FaRulerCombined,
   FaShare,
 } from 'react-icons/fa'
+import { FaXmark } from 'react-icons/fa6'
 
 const PropertyPage = () => {
   const { id } = useParams()
@@ -77,7 +79,7 @@ const PropertyPage = () => {
                       Boston Commons Retreat
                     </h1>
                     <div className='text-gray-500 mb-4 flex align-middle justify-center md:justify-start'>
-                      <i className='fa-solid fa-location-dot text-lg text-orange-700 mr-2'></i>
+                      <FaMapMarker className='text-lg text-orange-700 mr-2' />
                       <p className='text-orange-700'>
                         120 Tremont Street Boston, MA 02111
                       </p>
@@ -92,7 +94,7 @@ const PropertyPage = () => {
                           Nightly
                         </div>
                         <div className='text-2xl font-bold'>
-                          <i className='fa fa-xmark text-red-700'></i>
+                          <FaXmark className='text-red-700' />
                         </div>
                       </div>
                       <div className='flex items-center justify-center mb-4 border-b border-gray-200 md:border-b-0 pb-4 md:pb-0'>
