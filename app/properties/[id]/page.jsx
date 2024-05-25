@@ -4,7 +4,16 @@ import { useParams } from 'next/navigation'
 import { fetchProp } from '@/utils/requests'
 import { PropHeadImg } from '@/components'
 import Link from 'next/link'
-import { FaArrowLeft, FaBookmark, FaPaperPlane, FaShare } from 'react-icons/fa'
+import {
+  FaArrowLeft,
+  FaBath,
+  FaBed,
+  FaBookmark,
+  FaCheck,
+  FaPaperPlane,
+  FaRulerCombined,
+  FaShare,
+} from 'react-icons/fa'
 
 const PropertyPage = () => {
   const { id } = useParams()
@@ -111,15 +120,15 @@ const PropertyPage = () => {
                     </h3>
                     <div className='flex justify-center gap-4 text-blue-500 mb-4 text-xl space-x-9'>
                       <p>
-                        <i className='fa-solid fa-bed'></i> 3
+                        <FaBed /> 3
                         <span className='hidden sm:inline'>Beds</span>
                       </p>
                       <p>
-                        <i className='fa-solid fa-bath'></i> 2
+                        <FaBath /> 2
                         <span className='hidden sm:inline'>Baths</span>
                       </p>
                       <p>
-                        <i className='fa-solid fa-ruler-combined'></i>
+                        <FaRulerCombined />
                         1,500 <span className='hidden sm:inline'>sqft</span>
                       </p>
                     </div>
@@ -138,59 +147,58 @@ const PropertyPage = () => {
 
                     <ul className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 list-none'>
                       <li>
-                        <i className='fas fa-check text-green-600 mr-2 mt-3'></i>{' '}
-                        Wifi
+                        <FaCheck className='text-green-600 mr-2 mt-3' /> Wifi
                       </li>
                       <li>
-                        <i className='fas fa-check text-green-600 mr-2 mt-3'></i>
-                        Full kitchen
+                        <FaCheck className='text-green-600 mr-2 mt-3' /> Full
+                        kitchen
                       </li>
                       <li>
-                        <i className='fas fa-check text-green-600 mr-2 mt-3'></i>
-                        Washer & Dryer
+                        <FaCheck className='text-green-600 mr-2 mt-3' /> Washer
+                        & Dryer
                       </li>
                       <li>
-                        <i className='fas fa-check text-green-600 mr-2 mt-3'></i>
+                        <FaCheck className='text-green-600 mr-2 mt-3' />
                         Free Parking
                       </li>
                       <li>
-                        <i className='fas fa-check text-green-600 mr-2 mt-3'></i>
+                        <FaCheck className='text-green-600 mr-2 mt-3' />
                         Hot Tub
                       </li>
                       <li>
-                        <i className='fas fa-check text-green-600 mr-2 mt-3'></i>
+                        <FaCheck className='text-green-600 mr-2 mt-3' />
                         24/7 Security
                       </li>
                       <li>
-                        <i className='fas fa-check text-green-600 mr-2 mt-3'></i>
+                        <FaCheck className='text-green-600 mr-2 mt-3' />
                         Wheelchair Accessible
                       </li>
                       <li>
-                        <i className='fas fa-check text-green-600 mr-2 mt-3'></i>
+                        <FaCheck className='text-green-600 mr-2 mt-3' />
                         Elevator Access
                       </li>
                       <li>
-                        <i className='fas fa-check text-green-600 mr-2 mt-3'></i>
+                        <FaCheck className='text-green-600 mr-2 mt-3' />
                         Dishwasher
                       </li>
                       <li>
-                        <i className='fas fa-check text-green-600 mr-2 mt-3'></i>
+                        <FaCheck className='text-green-600 mr-2 mt-3' />
                         Gym/Fitness Center
                       </li>
                       <li>
-                        <i className='fas fa-check text-green-600 mr-2 mt-3'></i>
+                        <FaCheck className='text-green-600 mr-2 mt-3' />
                         Air Conditioning
                       </li>
                       <li>
-                        <i className='fas fa-check text-green-600 mr-2 mt-3'></i>
+                        <FaCheck className='text-green-600 mr-2 mt-3' />
                         Balcony/Patio
                       </li>
                       <li>
-                        <i className='fas fa-check text-green-600 mr-2 mt-3'></i>
+                        <FaCheck className='text-green-600 mr-2 mt-3' />
                         Smart TV
                       </li>
                       <li>
-                        <i className='fas fa-check text-green-600 mr-2 mt-3'></i>
+                        <FaCheck className='text-green-600 mr-2 mt-3' />
                         Coffee Maker
                       </li>
                     </ul>
