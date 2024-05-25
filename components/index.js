@@ -6,6 +6,16 @@ import Footer from './Footer'
 import PropCard from './PropCard'
 import HomeProps from './HomeProps'
 import PropHeadImg from './PropHeadImg'
+import PropDetails from './PropDetails'
 
 // exports
-export { PropHeadImg, PropCard, HomeProps, Footer, NavBar, InfoBoxes, Hero }
+export {
+  PropHeadImg,
+  PropDetails,
+  PropCard,
+  HomeProps,
+  Footer,
+  NavBar,
+  InfoBoxes,
+  Hero,
+}
