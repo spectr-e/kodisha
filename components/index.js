@@ -7,9 +7,11 @@ import PropCard from './PropCard'
 import HomeProps from './HomeProps'
 import PropHeadImg from './PropHeadImg'
 import PropDetails from './PropDetails'
+import Spinner from './Spinner'
 
 // exports
 export {
+  Spinner,
   PropHeadImg,
   PropDetails,
   PropCard,

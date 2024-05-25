@@ -2,7 +2,7 @@
 import { useEffect, useState } from 'react'
 import { useParams } from 'next/navigation'
 import { fetchProp } from '@/utils/requests'
-import { PropDetails, PropHeadImg } from '@/components'
+import { PropDetails, PropHeadImg, Spinner } from '@/components'
 import Link from 'next/link'
 import { FaArrowLeft, FaBookmark, FaPaperPlane, FaShare } from 'react-icons/fa'
 
@@ -40,6 +40,7 @@ const PropertyPage = () => {
 
   return (
     <>
+      {loading && <Spinner loading={loading} />}
       {!loading && property && (
         <>
           {/* <!-- Property Header Image --> */}
@@ -63,7 +64,6 @@ const PropertyPage = () => {
               <div className='grid grid-cols-1 md:grid-cols-70/30 w-full gap-6'>
                 {/* <!-- Property Details --> */}
                 <PropDetails property={property} />
-
                 {/* <!-- Sidebar --> */}
                 <aside className='space-y-4'>
                   <button className='bg-blue-500 hover:bg-blue-600 text-white font-bold w-full py-2 px-4 rounded-full flex items-center justify-center'>
