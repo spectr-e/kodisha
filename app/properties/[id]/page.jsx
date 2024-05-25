@@ -2,6 +2,7 @@
 import { useEffect, useState } from 'react'
 import { useParams } from 'next/navigation'
 import { fetchProp } from '@/utils/requests'
+import { PropHeadImg } from '@/components'
 
 const PropertyPage = () => {
   const { id } = useParams()
@@ -35,7 +36,15 @@ const PropertyPage = () => {
     )
   }
 
-  return <>{!loading && property && <></>}</>
+  return (
+    <>
+      {!loading && property && (
+        <>
+          <PropHeadImg img={property.images} />
+        </>
+      )}
+    </>
+  )
 }
 
 export default PropertyPage
