@@ -8,9 +8,11 @@ import HomeProps from './HomeProps'
 import PropHeadImg from './PropHeadImg'
 import PropDetails from './PropDetails'
 import Spinner from './Spinner'
+import AuthProvider from './AuthProvider'
 
 // exports
 export {
+  AuthProvider,
   Spinner,
   PropHeadImg,
   PropDetails,
