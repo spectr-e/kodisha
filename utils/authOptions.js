@@ -15,4 +15,22 @@ export const authOptions = {
       },
     }),
   ],
+
+  callbacks: {
+    // invoked on successful signin
+    async signIn({ profile }) {
+      // a. connect to db
+      // b. check if user exists
+      // c. if not, create user
+      // d. if yes, return true
+      return true
+    },
+    // modify the session object
+    async session({ session }) {
+      // a. get user from db
+      // b. assign uid to session
+      // c. return session
+      return session
+    },
+  },
 }
