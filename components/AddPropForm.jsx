@@ -42,7 +42,6 @@ const AddPropForm = () => {
       }))
     }
   }
-
   const handleAmenitiesChange = (e) => {
     const { value, checked } = e.target
 
@@ -65,7 +64,6 @@ const AddPropForm = () => {
       amenities: updatedAmmenities,
     }))
   }
-
   const handleImgChange = (e) => {
     const { files } = e.target
 
@@ -231,7 +229,7 @@ const AddPropForm = () => {
           <input
             type='number'
             id='square_feet'
-            name='square_feet'
+            name='sq'
             className='w-full px-3 py-2 border rounded'
             required
             value={fields.sq}
@@ -493,7 +491,7 @@ const AddPropForm = () => {
         <input
           type='text'
           id='seller_name'
-          name='seller_info.name.'
+          name='seller_info.name'
           className='w-full px-3 py-2 border rounded'
           placeholder='Name'
           value={fields.seller_info.name}
