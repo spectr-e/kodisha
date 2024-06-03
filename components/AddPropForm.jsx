@@ -43,7 +43,7 @@ const AddPropForm = () => {
     }
   }
 
-  const handleImgChange = (e) => {
+  const handleAmenitiesChange = (e) => {
     const { value, checked } = e.target
 
     // clone the current array in state
@@ -66,7 +66,7 @@ const AddPropForm = () => {
     }))
   }
 
-  const handleAmenitiesChange = (e) => {
+  const handleImgChange = (e) => {
     const { files } = e.target
 
     // clone the current array in state
@@ -180,7 +180,7 @@ const AddPropForm = () => {
         <input
           type='text'
           id='zipcode'
-          name='location.zipcode'
+          name='location.zip'
           className='w-full px-3 py-2 mb-2 border rounded'
           placeholder='Zipcode'
           value={fields.location.zip}
@@ -188,6 +188,7 @@ const AddPropForm = () => {
         />
       </div>
 
+      {/* bbb fields */}
       <div className='flex flex-wrap mb-4'>
         {/* beds field */}
         <div className='w-full pr-2 sm:w-1/3'>
@@ -499,7 +500,6 @@ const AddPropForm = () => {
           onChange={handleChange}
         />
       </div>
-
       {/* seller email field */}
       <div className='mb-4'>
         <label
@@ -519,7 +519,6 @@ const AddPropForm = () => {
           value={fields.seller_info.email}
         />
       </div>
-
       {/* seller phone field */}
       <div className='mb-4'>
         <label
@@ -552,6 +551,7 @@ const AddPropForm = () => {
           accept='image/*'
           multiple
           onChange={handleImgChange}
+          required
         />
       </div>
 
