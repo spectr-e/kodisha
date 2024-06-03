@@ -84,7 +84,7 @@ const AddPropForm = () => {
   }
 
   return (
-    <form>
+    <form action='/api/properties' method='POST' encType='multipart/form-data'>
       <h2 className='mb-6 text-3xl font-semibold text-center'>Add Property</h2>
       {/* property type field */}
       <div className='mb-4'>

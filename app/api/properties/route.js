@@ -14,3 +14,13 @@ export const GET = async (request) => {
     return new Response('Something is not right', { status: 500 })
   }
 }
+
+export const POST = async (req) => {
+  try {
+    const formData = await req.formData()
+
+    return new Response(JSON.stringify({ message: 'Success' }), { status: 200 })
+  } catch (error) {
+    return new Response('Failed to add property', { status: 500 })
+  }
+}
