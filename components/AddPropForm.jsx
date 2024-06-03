@@ -16,7 +16,32 @@ const AddPropForm = () => {
     images: [],
   })
 
-  const handleChange = (e) => {}
+  const handleChange = (e) => {
+    const { name, value } = e.target
+
+    // for nested fields
+    if (name.includes('.')) {
+      // eg. 'location.street' becomes 'location' 'street'
+      const [outerKey, innerKey] = name.split('.')
+      setFields((prev) => ({
+        // bring in all the fields in the main object
+        ...prev,
+        // specify outer key object to be edited
+        [outerKey]: {
+          // bring in all the fields in the outer key object
+          ...prev[outerKey],
+          // specify inner key field to be edited
+          [innerKey]: value,
+        },
+      }))
+    } else {
+      // if not nested fields
+      setFields((prev) => ({
+        ...prev,
+        [name]: value,
+      }))
+    }
+  }
   const handleImgChange = (e) => {}
   const handleAmenitiesChange = (e) => {}
 
