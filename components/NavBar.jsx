@@ -12,6 +12,9 @@ const NavBar = () => {
   const { data: session } = useSession()
   const [providers, setProviders] = useState(null)
 
+  // google avatar image
+  const profileImg = session?.user?.image
+
   const [openMobileMenu, setOpenMobileMenu] = useState(false)
   const [openProfile, setOpenProfile] = useState(false)
   const pathName = usePathname()
@@ -166,8 +169,11 @@ const NavBar = () => {
                     <span className='sr-only'>Open user menu</span>
                     <Image
                       className='w-8 h-8 rounded-full'
-                      src={profile}
+                      src={profileImg || profile}
                       alt=''
+                      sizes='100vh'
+                      width={0}
+                      height={0}
                     />
                   </button>
                 </div>
