@@ -9,9 +9,11 @@ import PropHeadImg from './PropHeadImg'
 import PropDetails from './PropDetails'
 import Spinner from './Spinner'
 import AuthProvider from './AuthProvider'
+import AddPropForm from './AddPropForm'
 
 // exports
 export {
+  AddPropForm,
   AuthProvider,
   Spinner,
   PropHeadImg,
