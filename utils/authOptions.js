@@ -47,7 +47,7 @@ export const authOptions = {
       const user = await User.findOne({ email: session.user.email })
 
       // b. assign uid to session
-      session.user.id = user._id
+      session.user.id = user.id
 
       // d. if no error, return session
       return session
