@@ -383,6 +383,8 @@ const AddPropForm = () => {
               id='weekly_rate'
               name='rates.weekly'
               className='w-full px-3 py-2 border rounded'
+              value={fields.rates.weekly}
+              onChange={handleChange}
             />
           </div>
           {/* monthly rates */}
@@ -395,6 +397,8 @@ const AddPropForm = () => {
               id='monthly_rate'
               name='rates.monthly'
               className='w-full px-3 py-2 border rounded'
+              checked={fields.rates.monthly}
+              onChange={handleChange}
             />
           </div>
           {/* nightly rates */}
@@ -407,6 +411,8 @@ const AddPropForm = () => {
               id='nightly_rate'
               name='rates.nightly'
               className='w-full px-3 py-2 border rounded'
+              checked={fields.rates.nightly}
+              onChange={handleChange}
             />
           </div>
         </div>
@@ -426,6 +432,8 @@ const AddPropForm = () => {
           name='seller_info.name.'
           className='w-full px-3 py-2 border rounded'
           placeholder='Name'
+          checked={fields.seller_info.name}
+          onChange={handleChange}
         />
       </div>
 
@@ -444,6 +452,8 @@ const AddPropForm = () => {
           className='w-full px-3 py-2 border rounded'
           placeholder='Email address'
           required
+          onChange={handleChange}
+          value={fields.seller_info.email}
         />
       </div>
 
@@ -461,6 +471,8 @@ const AddPropForm = () => {
           name='seller_info.phone'
           className='w-full px-3 py-2 border rounded'
           placeholder='Phone'
+          checked={fields.seller_info.phone}
+          onChange={handleChange}
         />
       </div>
 
@@ -476,6 +488,7 @@ const AddPropForm = () => {
           className='w-full px-3 py-2 border rounded'
           accept='image/*'
           multiple
+          onChange={handleImgChange}
         />
       </div>
 
