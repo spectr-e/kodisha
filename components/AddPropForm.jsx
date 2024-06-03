@@ -1,7 +1,21 @@
 'use client'
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 
 const AddPropForm = () => {
+  const [fields, setFields] = useState({
+    type: 'Apartment',
+    name: 'Test Property',
+    description: '',
+    location: { street: '', city: 'test city', state: 'test state', zip: '' },
+    beds: '1',
+    baths: '1',
+    sq: '1000',
+    amenities: [],
+    rates: { weekly: '', monthly: '1', monthly: '' },
+    seller_info: { name: '', email: 'test@test.com', phone: '' },
+    images: [],
+  })
+
   return (
     <form>
       <h2 className='mb-6 text-3xl font-semibold text-center'>Add Property</h2>
