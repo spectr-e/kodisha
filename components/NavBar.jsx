@@ -246,12 +246,17 @@ const NavBar = () => {
                 Add Property
               </Link>
             )}
-            {!session && (
-              <button className='flex items-center px-3 py-2 my-8 text-white bg-gray-700 rounded-md hover:bg-gray-900 hover:text-white'>
-                <FaGoogle className='mr-2 text-white' />
-                <span>Login or Register</span>
-              </button>
-            )}
+            {!session &&
+              providers &&
+              Object.values(providers).map((provider, idx) => (
+                <button
+                  key={idx}
+                  onClick={() => signIn(provider.id)}
+                  className='flex items-center px-3 py-2 my-8 text-white bg-gray-700 rounded-md hover:bg-gray-900 hover:text-white'
+                >
+                  <span>Login or Register</span>
+                </button>
+              ))}
           </div>
         </div>
       )}
