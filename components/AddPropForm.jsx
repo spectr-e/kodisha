@@ -16,6 +16,10 @@ const AddPropForm = () => {
     images: [],
   })
 
+  const handleChange = (e) => {}
+  const handleImgChange = (e) => {}
+  const handleAmenitiesChange = (e) => {}
+
   return (
     <form>
       <h2 className='mb-6 text-3xl font-semibold text-center'>Add Property</h2>
@@ -29,6 +33,8 @@ const AddPropForm = () => {
           name='type'
           className='w-full px-3 py-2 border rounded'
           required
+          value={fields.type}
+          onChange={handleChange}
         >
           <option value='Apartment'>Apartment</option>
           <option value='Condo'>Condo</option>
@@ -52,6 +58,8 @@ const AddPropForm = () => {
           className='w-full px-3 py-2 mb-2 border rounded'
           placeholder='eg. Beautiful Apartment In Miami'
           required
+          value={fields.name}
+          onChange={handleChange}
         />
       </div>
 
@@ -69,6 +77,8 @@ const AddPropForm = () => {
           className='w-full px-3 py-2 border rounded'
           rows='4'
           placeholder='Add an optional description of your property'
+          value={fields.description}
+          onChange={handleChange}
         ></textarea>
       </div>
 
@@ -81,6 +91,8 @@ const AddPropForm = () => {
           name='location.street'
           className='w-full px-3 py-2 mb-2 border rounded'
           placeholder='Street'
+          value={fields.location.street}
+          onChange={handleChange}
         />
         <input
           type='text'
@@ -89,6 +101,8 @@ const AddPropForm = () => {
           className='w-full px-3 py-2 mb-2 border rounded'
           placeholder='City'
           required
+          value={fields.location.city}
+          onChange={handleChange}
         />
         <input
           type='text'
@@ -97,6 +111,8 @@ const AddPropForm = () => {
           className='w-full px-3 py-2 mb-2 border rounded'
           placeholder='State'
           required
+          value={fields.location.state}
+          onChange={handleChange}
         />
         <input
           type='text'
@@ -104,6 +120,8 @@ const AddPropForm = () => {
           name='location.zipcode'
           className='w-full px-3 py-2 mb-2 border rounded'
           placeholder='Zipcode'
+          value={fields.location.zip}
+          onChange={handleChange}
         />
       </div>
 
@@ -119,6 +137,8 @@ const AddPropForm = () => {
             name='beds'
             className='w-full px-3 py-2 border rounded'
             required
+            value={fields.beds}
+            onChange={handleChange}
           />
         </div>
         {/* baths field */}
@@ -132,6 +152,8 @@ const AddPropForm = () => {
             name='baths'
             className='w-full px-3 py-2 border rounded'
             required
+            value={fields.baths}
+            onChange={handleChange}
           />
         </div>
         {/* square feet field */}
@@ -148,6 +170,8 @@ const AddPropForm = () => {
             name='square_feet'
             className='w-full px-3 py-2 border rounded'
             required
+            value={fields.sq}
+            onChange={handleChange}
           />
         </div>
       </div>
@@ -163,6 +187,8 @@ const AddPropForm = () => {
               name='amenities'
               value='Wifi'
               className='mr-2'
+              checked={fields.amenities.includes('Wifi')}
+              onChange={handleAmenitiesChange}
             />
             <label htmlFor='amenity_wifi'>Wifi</label>
           </div>
@@ -173,6 +199,8 @@ const AddPropForm = () => {
               name='amenities'
               value='Full Kitchen'
               className='mr-2'
+              checked={fields.amenities.includes('Full Kitchen')}
+              onChange={handleAmenitiesChange}
             />
             <label htmlFor='amenity_kitchen'>Full kitchen</label>
           </div>
@@ -183,6 +211,8 @@ const AddPropForm = () => {
               name='amenities'
               value='Washer & Dryer'
               className='mr-2'
+              checked={fields.amenities.includes('Washer & Dryer')}
+              onChange={handleAmenitiesChange}
             />
             <label htmlFor='amenity_washer_dryer'>Washer & Dryer</label>
           </div>
@@ -193,6 +223,8 @@ const AddPropForm = () => {
               name='amenities'
               value='Free Parking'
               className='mr-2'
+              checked={fields.amenities.includes('Free Parking')}
+              onChange={handleAmenitiesChange}
             />
             <label htmlFor='amenity_free_parking'>Free Parking</label>
           </div>
@@ -203,6 +235,8 @@ const AddPropForm = () => {
               name='amenities'
               value='Swimming Pool'
               className='mr-2'
+              checked={fields.amenities.includes('Swimming Pool')}
+              onChange={handleAmenitiesChange}
             />
             <label htmlFor='amenity_pool'>Swimming Pool</label>
           </div>
@@ -213,6 +247,8 @@ const AddPropForm = () => {
               name='amenities'
               value='Hot Tub'
               className='mr-2'
+              checked={fields.amenities.includes('Hot Tub')}
+              onChange={handleAmenitiesChange}
             />
             <label htmlFor='amenity_hot_tub'>Hot Tub</label>
           </div>
@@ -223,6 +259,8 @@ const AddPropForm = () => {
               name='amenities'
               value='24/7 Security'
               className='mr-2'
+              checked={fields.amenities.includes('24/7 Security')}
+              onChange={handleAmenitiesChange}
             />
             <label htmlFor='amenity_24_7_security'>24/7 Security</label>
           </div>
@@ -233,6 +271,8 @@ const AddPropForm = () => {
               name='amenities'
               value='Wheelchair Accessible'
               className='mr-2'
+              checked={fields.amenities.includes('Wheelchair Accessible')}
+              onChange={handleAmenitiesChange}
             />
             <label htmlFor='amenity_wheelchair_accessible'>
               Wheelchair Accessible
@@ -245,6 +285,8 @@ const AddPropForm = () => {
               name='amenities'
               value='Elevator Access'
               className='mr-2'
+              checked={fields.amenities.includes('Elevator Access')}
+              onChange={handleAmenitiesChange}
             />
             <label htmlFor='amenity_elevator_access'>Elevator Access</label>
           </div>
@@ -255,6 +297,8 @@ const AddPropForm = () => {
               name='amenities'
               value='Dishwasher'
               className='mr-2'
+              checked={fields.amenities.includes('Dishwasher')}
+              onChange={handleAmenitiesChange}
             />
             <label htmlFor='amenity_dishwasher'>Dishwasher</label>
           </div>
@@ -265,6 +309,8 @@ const AddPropForm = () => {
               name='amenities'
               value='Gym/Fitness Center'
               className='mr-2'
+              checked={fields.amenities.includes('Gym/Fitness Center')}
+              onChange={handleAmenitiesChange}
             />
             <label htmlFor='amenity_gym_fitness_center'>
               Gym/Fitness Center
@@ -277,6 +323,8 @@ const AddPropForm = () => {
               name='amenities'
               value='Air Conditioning'
               className='mr-2'
+              checked={fields.amenities.includes('Air Conditioning')}
+              onChange={handleAmenitiesChange}
             />
             <label htmlFor='amenity_air_conditioning'>Air Conditioning</label>
           </div>
@@ -287,6 +335,8 @@ const AddPropForm = () => {
               name='amenities'
               value='Balcony/Patio'
               className='mr-2'
+              checked={fields.amenities.includes('Balcony/Patio')}
+              onChange={handleAmenitiesChange}
             />
             <label htmlFor='amenity_balcony_patio'>Balcony/Patio</label>
           </div>
@@ -297,6 +347,8 @@ const AddPropForm = () => {
               name='amenities'
               value='Smart TV'
               className='mr-2'
+              checked={fields.amenities.includes('Smart TV')}
+              onChange={handleAmenitiesChange}
             />
             <label htmlFor='amenity_smart_tv'>Smart TV</label>
           </div>
@@ -307,6 +359,8 @@ const AddPropForm = () => {
               name='amenities'
               value='Coffee Maker'
               className='mr-2'
+              checked={fields.amenities.includes('Coffee Maker')}
+              onChange={handleAmenitiesChange}
             />
             <label htmlFor='amenity_coffee_maker'>Coffee Maker</label>
           </div>
