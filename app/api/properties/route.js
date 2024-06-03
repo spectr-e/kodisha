@@ -1,5 +1,7 @@
 import connectDB from '@/config/database'
 import Property from '@/model/Property'
+import { authOptions } from '@/utils/authOptions'
+import { getServerSession } from 'next-auth'
 
 // GET /api/properties
 export const GET = async (request) => {
@@ -15,17 +17,26 @@ export const GET = async (request) => {
   }
 }
 
+// POST /api/properties
 export const POST = async (req) => {
   try {
+    // a. connect to db
+    await connectDB()
+    // b. load the current user session
+    const session = await getServerSession(authOptions)
+    if (!session) {
+      return new Response('Not authorized', { status: 401 })
+    }
+    // c. get the userid to attach to property
+    const userId = session.user.id
+    // d. get the form data
     const formData = await req.formData()
-
     // access all values from amenities & images
     const amenities = formData.getAll('amenities')
     const images = formData
       .getAll('images')
       .filter((image) => image.name !== '') // to prevent cloudinary from throwing an error
-
-    // create propertydata object for db
+    // create propertydata object for submission
     const propData = {
       type: formData.get('type'),
       name: formData.get('name'),
@@ -50,10 +61,9 @@ export const POST = async (req) => {
         email: formData.get('seller_info.email'),
         phone: formData.get('seller_info.phone'),
       },
+      owner: userId,
       images,
     }
-
-    console.log(propData)
 
     return new Response(JSON.stringify({ message: 'Success' }), { status: 200 })
   } catch (error) {
