@@ -11,7 +11,7 @@ const AddPropForm = () => {
     baths: '1',
     sq: '1000',
     amenities: [],
-    rates: { weekly: '', monthly: '1', monthly: '' },
+    rates: { weekly: '', monthly: '1000', nightly: '' },
     seller_info: { name: '', email: 'test@test.com', phone: '' },
     images: [],
   })
@@ -397,7 +397,7 @@ const AddPropForm = () => {
               id='monthly_rate'
               name='rates.monthly'
               className='w-full px-3 py-2 border rounded'
-              checked={fields.rates.monthly}
+              value={fields.rates.monthly}
               onChange={handleChange}
             />
           </div>
@@ -432,7 +432,7 @@ const AddPropForm = () => {
           name='seller_info.name.'
           className='w-full px-3 py-2 border rounded'
           placeholder='Name'
-          checked={fields.seller_info.name}
+          value={fields.seller_info.name}
           onChange={handleChange}
         />
       </div>
@@ -471,7 +471,7 @@ const AddPropForm = () => {
           name='seller_info.phone'
           className='w-full px-3 py-2 border rounded'
           placeholder='Phone'
-          checked={fields.seller_info.phone}
+          value={fields.seller_info.phone}
           onChange={handleChange}
         />
       </div>
