@@ -24,8 +24,6 @@ const NavBar = () => {
     setAuthProviders()
   }, [])
 
-  console.log(providers)
-
   return (
     <nav className='bg-blue-700 border-b border-blue-500'>
       <div className='px-2 mx-auto max-w-7xl sm:px-6 lg:px-8'>
@@ -106,10 +104,17 @@ const NavBar = () => {
           {!session && (
             <div className='hidden md:block md:ml-6'>
               <div className='flex items-center'>
-                <button className='flex items-center px-3 py-2 text-white bg-gray-700 rounded-md hover:bg-gray-900 hover:text-white'>
-                  <FaGoogle className='mr-2 text-white' />
-                  <span>Login or Register</span>
-                </button>
+                {providers &&
+                  Object.values(providers).map((provider, idx) => (
+                    <button
+                      key={idx}
+                      onClick={() => signIn(provider.id)}
+                      className='flex items-center px-3 py-2 text-white bg-gray-700 rounded-md hover:bg-gray-900 hover:text-white'
+                    >
+                      <FaGoogle className='mr-2 text-white' />
+                      <span>Login or Register</span>
+                    </button>
+                  ))}
               </div>
             </div>
           )}
