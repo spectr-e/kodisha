@@ -1,3 +1,4 @@
+import cloudinary from '@/config/cloudinary'
 import connectDB from '@/config/database'
 import Property from '@/model/Property'
 import { getSessionUser } from '@/utils/getSessionUser'
@@ -65,12 +66,47 @@ export const POST = async (req) => {
         phone: formData.get('seller_info.phone'),
       },
       owner: userId,
-      images,
+    }
+
+    // f. upload images to cloudinary
+    const imageUploadPromises = []
+    for (const image of images) {
+      const imageBuffer = await image.arrayBuffer()
+
+      // convert into an array of 8bit unsigned integers
+      const imageArray = Array.from(new Uint8Array(imageBuffer))
+
+      // turn data into a processable format
+      const imageData = Buffer.from(imageArray)
+
+      // convert image data to base64
+      const imageBase64 = imageData.toString('base64')
+
+      // make req to upload to cloudinary
+      const result = await cloudinary.uploader.upload(
+        `data: image/png;base64, ${imageBase64}`,
+        { folder: 'kodisha' }
+      )
+
+      imageUploadPromises.push(result.secure_url)
+
+      // wait for all images to be uploaded
+      const uploadedImgs = await Promise.all(imageUploadPromises)
+
+      // add uploaded images to the propData obj
+      propData.images = uploadedImgs
     }
 
     console.log(propData)
 
-    return new Response(JSON.stringify({ message: 'Success' }), { status: 200 })
+    // g. save to db
+    const newProp = new Property(propData)
+    await newProp.save()
+
+    return Response.redirect(
+      `${process.env.NEXTAUTH_URL}/properties/${newProp._id}`
+    )
+    // return new Response(JSON.stringify({ message: 'Success' }), { status: 200 })
   } catch (error) {
     return new Response('Failed to add property', { status: 500 })
   }
