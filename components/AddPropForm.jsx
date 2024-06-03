@@ -19,7 +19,7 @@ const AddPropForm = () => {
   const handleChange = (e) => {
     const { name, value } = e.target
 
-    // for nested fields
+    // if nested fields
     if (name.includes('.')) {
       // eg. 'location.street' becomes 'location' 'street'
       const [outerKey, innerKey] = name.split('.')
@@ -42,7 +42,30 @@ const AddPropForm = () => {
       }))
     }
   }
-  const handleImgChange = (e) => {}
+
+  const handleImgChange = (e) => {
+    const { value, checked } = e.target
+
+    // clone the current array in state
+    const updatedAmmenities = [...fields.amenities]
+    if (checked) {
+      // add value to array
+      updatedAmmenities.push(value)
+    } else {
+      // remove value from array
+      const index = updatedAmmenities.indexOf(value)
+      if (index !== -1) {
+        updatedAmmenities.splice(index, 1)
+      }
+    }
+
+    // update state with updated array
+    setFields((prev) => ({
+      ...prev,
+      amenities: updatedAmmenities,
+    }))
+  }
+
   const handleAmenitiesChange = (e) => {}
 
   return (
