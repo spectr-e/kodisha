@@ -16,7 +16,7 @@ const NavBar = () => {
   const profileImg = session?.user?.image
 
   const [openMobileMenu, setOpenMobileMenu] = useState(false)
-  const [openProfile, setOpenProfile] = useState(false)
+  const [openDropdown, setOpenDropdown] = useState(false)
   const pathName = usePathname()
 
   useEffect(() => {
@@ -158,7 +158,7 @@ const NavBar = () => {
               <div className='relative ml-3'>
                 <div>
                   <button
-                    onClick={() => setOpenProfile((prev) => !prev)}
+                    onClick={() => setOpenDropdown((prev) => !prev)}
                     type='button'
                     className='relative flex text-sm bg-gray-800 rounded-full focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800'
                     id='user-menu-button'
@@ -179,7 +179,7 @@ const NavBar = () => {
                 </div>
 
                 {/* <!-- Profile dropdown --> */}
-                {openProfile && (
+                {openDropdown && (
                   <div
                     id='user-menu'
                     className='absolute right-0 z-10 w-48 py-1 mt-2 origin-top-right bg-white rounded-md shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none'
@@ -194,6 +194,7 @@ const NavBar = () => {
                       role='menuitem'
                       tabIndex='-1'
                       id='user-menu-item-0'
+                      onClick={() => setOpenDropdown(false)}
                     >
                       Your Profile
                     </Link>
@@ -203,12 +204,13 @@ const NavBar = () => {
                       role='menuitem'
                       tabIndex='-1'
                       id='user-menu-item-2'
+                      onClick={() => setOpenDropdown(false)}
                     >
                       Saved Properties
                     </Link>
                     <button
                       onClick={() => {
-                        setOpenMobileMenu(false)
+                        setOpenDropdown(false)
                         signOut()
                       }}
                       className='block px-4 py-2 text-sm text-gray-700'
