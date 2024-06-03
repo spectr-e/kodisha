@@ -3,34 +3,47 @@ import { logoWhite, profile } from '@/assets/images'
 import Image from 'next/image'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { FaGoogle } from 'react-icons/fa'
+import { signIn, signOut, useSession, getProviders } from 'next-auth/react'
 
 const NavBar = () => {
+  // authentication
+  const { data: session } = useSession()
+  const [providers, setProviders] = useState(null)
+
   const [openMobileMenu, setOpenMobileMenu] = useState(false)
   const [openProfile, setOpenProfile] = useState(false)
-  const [loggedIn, setLoggedIn] = useState(false)
-
   const pathName = usePathname()
+
+  useEffect(() => {
+    const setAuthProviders = async () => {
+      const response = await getProviders()
+      setProviders(response)
+    }
+    setAuthProviders()
+  }, [])
+
+  console.log(providers)
 
   return (
     <nav className='bg-blue-700 border-b border-blue-500'>
-      <div className='mx-auto max-w-7xl px-2 sm:px-6 lg:px-8'>
-        <div className='relative flex h-20 items-center justify-between'>
+      <div className='px-2 mx-auto max-w-7xl sm:px-6 lg:px-8'>
+        <div className='relative flex items-center justify-between h-20'>
           <div className='absolute inset-y-0 left-0 flex items-center md:hidden'>
             {/* <!-- Mobile menu button--> */}
             <button
               onClick={() => setOpenMobileMenu((prev) => !prev)}
               type='button'
               id='mobile-dropdown-button'
-              className='relative inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white'
+              className='relative inline-flex items-center justify-center p-2 text-gray-400 rounded-md hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white'
               aria-controls='mobile-menu'
               aria-expanded='false'
             >
               <span className='absolute -inset-0.5'></span>
               <span className='sr-only'>Open main menu</span>
               <svg
-                className='block h-6 w-6'
+                className='block w-6 h-6'
                 fill='none'
                 viewBox='0 0 24 24'
                 strokeWidth='1.5'
@@ -46,12 +59,12 @@ const NavBar = () => {
             </button>
           </div>
 
-          <div className='flex flex-1 items-center justify-center md:items-stretch md:justify-start'>
+          <div className='flex items-center justify-center flex-1 md:items-stretch md:justify-start'>
             {/* <!-- Logo --> */}
-            <Link className='flex flex-shrink-0 items-center' href='/'>
-              <Image className='h-10 w-auto' src={logoWhite} alt='Kodisha' />
+            <Link className='flex items-center flex-shrink-0' href='/'>
+              <Image className='w-auto h-10' src={logoWhite} alt='Kodisha' />
 
-              <span className='hidden md:block text-white text-2xl font-bold ml-2'>
+              <span className='hidden ml-2 text-2xl font-bold text-white md:block'>
                 Kodisha
               </span>
             </Link>
@@ -75,7 +88,7 @@ const NavBar = () => {
                 >
                   Properties
                 </Link>
-                {loggedIn && (
+                {session && (
                   <Link
                     href='/properties/add'
                     className={`${
@@ -90,11 +103,11 @@ const NavBar = () => {
           </div>
 
           {/* <!-- Right Side Menu (Logged Out) --> */}
-          {!loggedIn && (
+          {!session && (
             <div className='hidden md:block md:ml-6'>
               <div className='flex items-center'>
-                <button className='flex items-center text-white bg-gray-700 hover:bg-gray-900 hover:text-white rounded-md px-3 py-2'>
-                  <FaGoogle className='text-white mr-2' />
+                <button className='flex items-center px-3 py-2 text-white bg-gray-700 rounded-md hover:bg-gray-900 hover:text-white'>
+                  <FaGoogle className='mr-2 text-white' />
                   <span>Login or Register</span>
                 </button>
               </div>
@@ -102,18 +115,18 @@ const NavBar = () => {
           )}
 
           {/* <!-- Right Side Menu (Logged In) --> */}
-          {loggedIn && (
+          {session && (
             <div className='absolute inset-y-0 right-0 flex items-center pr-2 md:static md:inset-auto md:ml-6 md:pr-0'>
               {/* <!-- Notifications button --> */}
               <Link href='/notifications' className='relative group'>
                 <button
                   type='button'
-                  className='relative rounded-full bg-gray-800 p-1 text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800'
+                  className='relative p-1 text-gray-400 bg-gray-800 rounded-full hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800'
                 >
                   <span className='absolute -inset-1.5'></span>
                   <span className='sr-only'>View notifications</span>
                   <svg
-                    className='h-6 w-6'
+                    className='w-6 h-6'
                     fill='none'
                     viewBox='0 0 24 24'
                     strokeWidth='1.5'
@@ -139,7 +152,7 @@ const NavBar = () => {
                   <button
                     onClick={() => setOpenProfile((prev) => !prev)}
                     type='button'
-                    className='relative flex rounded-full bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800'
+                    className='relative flex text-sm bg-gray-800 rounded-full focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800'
                     id='user-menu-button'
                     aria-expanded='false'
                     aria-haspopup='true'
@@ -147,7 +160,7 @@ const NavBar = () => {
                     <span className='absolute -inset-1.5'></span>
                     <span className='sr-only'>Open user menu</span>
                     <Image
-                      className='h-8 w-8 rounded-full'
+                      className='w-8 h-8 rounded-full'
                       src={profile}
                       alt=''
                     />
@@ -158,7 +171,7 @@ const NavBar = () => {
                 {openProfile && (
                   <div
                     id='user-menu'
-                    className='absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none'
+                    className='absolute right-0 z-10 w-48 py-1 mt-2 origin-top-right bg-white rounded-md shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none'
                     role='menu'
                     aria-orientation='vertical'
                     aria-labelledby='user-menu-button'
@@ -201,7 +214,7 @@ const NavBar = () => {
       {/* <!-- Mobile menu, show/hide based on menu state. --> */}
       {openMobileMenu && (
         <div id='mobile-menu'>
-          <div className='space-y-1 px-2 pb-3 pt-2'>
+          <div className='px-2 pt-2 pb-3 space-y-1'>
             <Link
               href='/'
               className={`${
@@ -218,7 +231,7 @@ const NavBar = () => {
             >
               Properties
             </Link>
-            {loggedIn && (
+            {session && (
               <Link
                 href='/properties/add'
                 className={`${
@@ -228,9 +241,9 @@ const NavBar = () => {
                 Add Property
               </Link>
             )}
-            {!loggedIn && (
-              <button className='flex items-center text-white bg-gray-700 hover:bg-gray-900 hover:text-white rounded-md px-3 py-2 my-8'>
-                <FaGoogle className='text-white mr-2' />
+            {!session && (
+              <button className='flex items-center px-3 py-2 my-8 text-white bg-gray-700 rounded-md hover:bg-gray-900 hover:text-white'>
+                <FaGoogle className='mr-2 text-white' />
                 <span>Login or Register</span>
               </button>
             )}
