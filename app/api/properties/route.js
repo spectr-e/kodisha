@@ -69,14 +69,12 @@ export const POST = async (req) => {
     const images = formData
       .getAll('images')
       .filter((image) => image.name !== '') // to prevent cloudinary from throwing an error
+
     const imageUploadPromises = []
+
     for (const image of images) {
       const imageBuffer = await image.arrayBuffer()
-
-      // convert into an array of 8bit unsigned integers
       const imageArray = Array.from(new Uint8Array(imageBuffer))
-
-      // turn data into a processable format
       const imageData = Buffer.from(imageArray)
 
       // convert image data to base64
@@ -84,7 +82,7 @@ export const POST = async (req) => {
 
       // make req to upload to cloudinary into specified folder
       const result = await cloudinary.uploader.upload(
-        `data: image/png;base64, ${imageBase64}`,
+        `data:image/png;base64,${imageBase64}`,
         { folder: 'kodisha' }
       )
 
@@ -108,6 +106,7 @@ export const POST = async (req) => {
     )
     // return new Response(JSON.stringify({ message: 'Success' }), { status: 200 })
   } catch (error) {
+    console.log(error)
     return new Response('Failed to add property', { status: 500 })
   }
 }
