@@ -34,11 +34,8 @@ export const POST = async (req) => {
     // c. get the form data
     const formData = await req.formData()
 
-    // d. access all values from amenities & images
+    // d. access all values from amenities
     const amenities = formData.getAll('amenities')
-    const images = formData
-      .getAll('images')
-      .filter((image) => image.name !== '') // to prevent cloudinary from throwing an error
 
     // e. create propertydata object for submission
     const propData = {
@@ -69,6 +66,9 @@ export const POST = async (req) => {
     }
 
     // f. upload images to cloudinary
+    const images = formData
+      .getAll('images')
+      .filter((image) => image.name !== '') // to prevent cloudinary from throwing an error
     const imageUploadPromises = []
     for (const image of images) {
       const imageBuffer = await image.arrayBuffer()
@@ -82,7 +82,7 @@ export const POST = async (req) => {
       // convert image data to base64
       const imageBase64 = imageData.toString('base64')
 
-      // make req to upload to cloudinary
+      // make req to upload to cloudinary into specified folder
       const result = await cloudinary.uploader.upload(
         `data: image/png;base64, ${imageBase64}`,
         { folder: 'kodisha' }
