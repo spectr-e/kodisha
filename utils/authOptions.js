@@ -37,9 +37,10 @@ export const authOptions = {
           username,
           image: profile.picture,
         })
-        // d. if no error, return true
-        return true
       }
+
+      // d. if no error, return true
+      return true
     },
     // modify the session object
     async session({ session }) {
