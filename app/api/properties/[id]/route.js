@@ -25,11 +25,10 @@ export const GET = async (request, { params }) => {
 export const DELETE = async (request, { params }) => {
   try {
     await connectDB()
-
     const sessionUser = await getSessionUser()
 
     // check for session
-    if (!sessionUser || sessionUser.userId) {
+    if (!sessionUser || !sessionUser.userId) {
       return new Response('Unauthorized', { status: 401 })
     }
 

@@ -6,13 +6,13 @@ export const GET = async (request, { params }) => {
   try {
     await connectDB()
 
-    const userId = params.id
+    const userID = params.userID
 
-    if (!userId) {
+    if (!userID) {
       return new Response('User ID is required', { status: 400 })
     }
 
-    const properties = await Property.find({ owner: userId })
+    const properties = await Property.find({ owner: userID })
 
     return new Response(JSON.stringify(properties), {
       status: 200,
