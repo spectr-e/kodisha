@@ -1,5 +1,7 @@
 import '@/assets/styles/globals.css'
 import { AuthProvider, Footer, NavBar } from '@/components'
+import { ToastContainer } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
 
 export const metadata = {
   title: 'Kodisha | Find The Perfect Rental',
@@ -16,6 +18,7 @@ const MainLayout = ({ children }) => {
           <NavBar />
           {children}
           <Footer />
+          <ToastContainer />
         </body>
       </html>
     </AuthProvider>

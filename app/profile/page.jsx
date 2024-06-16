@@ -6,6 +6,7 @@ import { useSession } from 'next-auth/react'
 import Image from 'next/image'
 import Link from 'next/link'
 import { useEffect, useState } from 'react'
+import { toast } from 'react-toastify'
 
 const ProfilePage = () => {
   const { data: session } = useSession()
@@ -61,9 +62,9 @@ const ProfilePage = () => {
         //  remove prop from state
         const updatedProps = props.filter((prop) => prop._id !== id)
         setProps(updatedProps)
-        alert('Property deleted successfully!')
+        toast.success('Property deleted!')
       } else {
-        alert('Failed to delete property!')
+        toast.danger('Property not deleted!')
       }
     } catch (error) {
       console.log({ error: error })
