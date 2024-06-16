@@ -6,7 +6,7 @@ const AddPropForm = () => {
     type: '',
     name: '',
     description: '',
-    location: { street: '', city: ' ', state: ' ', zip: '' },
+    location: { street: '', city: '', state: '', zip: '' },
     beds: '',
     baths: '',
     sq: '',
