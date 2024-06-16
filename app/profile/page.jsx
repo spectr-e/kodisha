@@ -44,6 +44,8 @@ const ProfilePage = () => {
     }
   }, [session])
 
+  const handleDelete = (id) => {}
+
   return (
     <section className='bg-blue-50'>
       <div className='container py-24 m-auto'>
@@ -91,16 +93,20 @@ const ProfilePage = () => {
                     </Link>
                     <div className='mt-2'>
                       <p className='text-lg font-semibold'>{prop.name}</p>
-                      <p className='text-gray-600'>{prop.location.street}</p>
+                      <p className='text-gray-600'>
+                        {prop.location.street}, {prop.location.city}
+                        {prop.location.state}
+                      </p>
                     </div>
                     <div className='mt-2'>
                       <Link
-                        href='/add-property.html'
+                        href={`/properties/${prop._id}/edit`}
                         className='px-3 py-3 mr-2 text-white bg-blue-500 rounded-md hover:bg-blue-600'
                       >
                         Edit
                       </Link>
                       <button
+                        onclick={handleDelete(prop._id)}
                         className='px-3 py-2 text-white bg-red-500 rounded-md hover:bg-red-600'
                         type='button'
                       >
