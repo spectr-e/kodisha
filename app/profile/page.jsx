@@ -27,10 +27,10 @@ const ProfilePage = () => {
                   alt='User'
                 />
               </div>
-              <h2 className='mb-4 text-xl'>
+              <h2 className='mb-4 text-lg'>
                 <span className='block font-bold'>Name: </span> {name}
               </h2>
-              <h2 className='text-xl'>
+              <h2 className='text-lg'>
                 <span className='block font-bold'>Email: </span> {email}
               </h2>
             </div>
