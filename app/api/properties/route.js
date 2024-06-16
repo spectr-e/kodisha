@@ -95,8 +95,6 @@ export const POST = async (req) => {
       propData.images = uploadedImgs
     }
 
-    console.log(propData)
-
     // g. save to db
     const newProp = new Property(propData)
     await newProp.save()
@@ -104,7 +102,6 @@ export const POST = async (req) => {
     return Response.redirect(
       `${process.env.NEXTAUTH_URL}/properties/${newProp._id}`
     )
-    // return new Response(JSON.stringify({ message: 'Success' }), { status: 200 })
   } catch (error) {
     console.log(error)
     return new Response('Failed to add property', { status: 500 })
