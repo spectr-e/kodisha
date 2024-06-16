@@ -3,16 +3,16 @@ import { useState } from 'react'
 
 const AddPropForm = () => {
   const [fields, setFields] = useState({
-    type: 'Apartment',
-    name: 'Test Property',
+    type: '',
+    name: '',
     description: '',
-    location: { street: '', city: 'test city', state: 'test state', zip: '' },
-    beds: '1',
-    baths: '1',
-    sq: '1000',
+    location: { street: '', city: ' ', state: ' ', zip: '' },
+    beds: '',
+    baths: '',
+    sq: '',
     amenities: [],
-    rates: { weekly: '', monthly: '1000', nightly: '' },
-    seller_info: { name: '', email: 'test@test.com', phone: '' },
+    rates: { weekly: '', monthly: '', nightly: '' },
+    seller_info: { name: '', email: '', phone: '' },
     images: [],
   })
 
