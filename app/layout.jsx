@@ -17,7 +17,6 @@ const MainLayout = ({ children }) => {
         <body>
           <NavBar />
           {children}
-          <Footer />
           <ToastContainer
             position='bottom-right'
             autoClose={1900}
@@ -29,8 +28,9 @@ const MainLayout = ({ children }) => {
             draggable={false}
             pauseOnHover
             theme='light'
-            transition:Slide
+            transition='slide'
           />
+          <Footer />
         </body>
       </html>
     </AuthProvider>
