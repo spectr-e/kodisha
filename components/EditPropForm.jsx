@@ -28,6 +28,39 @@ const EditPropForm = () => {
     const fetchPropData = async () => {
       try {
         const propData = await fetchProp(id)
+
+        // check for null values in prop data and change into empty string
+        // 1. rates
+        if (propData && propData.rates) {
+          const defRates = { ...propData.rates }
+          for (const rate in defRates) {
+            if (defRates[rate] === null) {
+              defRates[rate] = ''
+            }
+          }
+          propData.rates = defRates
+        }
+        // 2. location
+        if (propData && propData.location) {
+          const defLocation = { ...propData.location }
+          for (const value in defLocation) {
+            if (defLocation[value] === null) {
+              defLocation[value] = ''
+            }
+          }
+          propData.location = defLocation
+        }
+        // 3. seller_info
+        if (propData && propData.seller_info) {
+          const defSellerInfo = { ...propData.seller_info }
+          for (const value in defSellerInfo) {
+            if (defSellerInfo[value] === null) {
+              defSellerInfo[value] = ''
+            }
+          }
+          propData.seller_info = defSellerInfo
+        }
+
         setFields(propData)
       } catch (e) {
         console.log({ error: e })
