@@ -10,9 +10,11 @@ import PropDetails from './PropDetails'
 import Spinner from './Spinner'
 import AuthProvider from './AuthProvider'
 import AddPropForm from './AddPropForm'
+import EditPropForm from './EditPropForm'
 
 // exports
 export {
+  EditPropForm,
   AddPropForm,
   AuthProvider,
   Spinner,
