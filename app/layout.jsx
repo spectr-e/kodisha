@@ -28,7 +28,7 @@ const MainLayout = ({ children }) => {
             pauseOnFocusLoss
             draggable={false}
             pauseOnHover
-            theme='dark'
+            theme='light'
             transition:Slide
           />
         </body>
