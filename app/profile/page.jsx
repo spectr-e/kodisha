@@ -64,7 +64,7 @@ const ProfilePage = () => {
         setProps(updatedProps)
         toast.success('Property deleted!')
       } else {
-        toast.danger('Property not deleted!')
+        toast.error('Property not deleted!')
       }
     } catch (error) {
       console.log({ error: error })
