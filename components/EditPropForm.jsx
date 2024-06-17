@@ -122,8 +122,30 @@ const EditPropForm = () => {
     }))
   }
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault()
+    // setLoading(true)
+
+    const formData = new FormData(e.target)
+
+    try {
+      const resp = await fetch(`/api/properties/${id}`, {
+        method: 'PUT',
+        body: formData,
+        // next: { revalidate: 60 },
+      })
+
+      if (resp.status === 200) {
+        router.push(`/properties/${id}`)
+      } else if (resp.status === 401 || resp.status === 404) {
+        toast.error('Permission denied!')
+      } else {
+        toast.error('Something went wrong!')
+      }
+    } catch (err) {
+      toast.error('Something went wrong!')
+      console.log({ error: err })
+    }
   }
 
   return (

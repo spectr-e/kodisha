@@ -74,7 +74,7 @@ export const PUT = async (req, { params }) => {
     }
 
     // property id
-    const { id } = params.id
+    const { id } = params
 
     // c. get the form data
     const formData = await req.formData()
