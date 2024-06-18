@@ -2,7 +2,7 @@
 import { useEffect, useState } from 'react'
 import { useParams } from 'next/navigation'
 import { fetchProp } from '@/utils/requests'
-import { PropDetails, PropHeadImg, Spinner } from '@/components'
+import { PropDetails, PropHeadImg, Spinner, PropImages } from '@/components'
 import Link from 'next/link'
 import { FaArrowLeft, FaBookmark, FaPaperPlane, FaShare } from 'react-icons/fa'
 
@@ -32,7 +32,7 @@ const PropertyPage = () => {
 
   if (!property && !loading) {
     return (
-      <h1 className='text-center text-2xl font-bold mt-10'>
+      <h1 className='mt-10 text-2xl font-bold text-center'>
         Property not found
       </h1>
     )
@@ -48,10 +48,10 @@ const PropertyPage = () => {
 
           {/* <!-- Go Back --> */}
           <section>
-            <div className='container m-auto py-6 px-6'>
+            <div className='container px-6 py-6 m-auto'>
               <Link
                 href='/properties'
-                className='text-blue-500 hover:text-blue-600 flex items-center'
+                className='flex items-center text-blue-500 hover:text-blue-600'
               >
                 <FaArrowLeft className='mr-2' /> Back to Properties
               </Link>
@@ -60,34 +60,34 @@ const PropertyPage = () => {
 
           {/* <!-- Property Info --> */}
           <section className='bg-blue-50'>
-            <div className='container m-auto py-10 px-6'>
-              <div className='grid grid-cols-1 md:grid-cols-70/30 w-full gap-6'>
+            <div className='container px-6 py-10 m-auto'>
+              <div className='grid w-full grid-cols-1 gap-6 md:grid-cols-70/30'>
                 {/* <!-- Property Details --> */}
                 <PropDetails property={property} />
                 {/* <!-- Sidebar --> */}
                 <aside className='space-y-4'>
-                  <button className='bg-blue-500 hover:bg-blue-600 text-white font-bold w-full py-2 px-4 rounded-full flex items-center justify-center'>
+                  <button className='flex items-center justify-center w-full px-4 py-2 font-bold text-white bg-blue-500 rounded-full hover:bg-blue-600'>
                     <FaBookmark className='mr-2' /> Bookmark Property
                   </button>
-                  <button className='bg-orange-500 hover:bg-orange-600 text-white font-bold w-full py-2 px-4 rounded-full flex items-center justify-center'>
+                  <button className='flex items-center justify-center w-full px-4 py-2 font-bold text-white bg-orange-500 rounded-full hover:bg-orange-600'>
                     <FaShare className='mr-2' /> Share Property
                   </button>
 
                   {/* <!-- Contact Form --> */}
-                  <div className='bg-white p-6 rounded-lg shadow-md'>
-                    <h3 className='text-xl font-bold mb-6'>
+                  <div className='p-6 bg-white rounded-lg shadow-md'>
+                    <h3 className='mb-6 text-xl font-bold'>
                       Contact Property Manager
                     </h3>
                     <form>
                       <div className='mb-4'>
                         <label
-                          className='block text-gray-700 text-sm font-bold mb-2'
+                          className='block mb-2 text-sm font-bold text-gray-700'
                           htmlFor='name'
                         >
                           Name:
                         </label>
                         <input
-                          className='shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline'
+                          className='w-full px-3 py-2 leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline'
                           id='name'
                           type='text'
                           placeholder='Enter your name'
@@ -96,13 +96,13 @@ const PropertyPage = () => {
                       </div>
                       <div className='mb-4'>
                         <label
-                          className='block text-gray-700 text-sm font-bold mb-2'
+                          className='block mb-2 text-sm font-bold text-gray-700'
                           htmlFor='email'
                         >
                           Email:
                         </label>
                         <input
-                          className='shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline'
+                          className='w-full px-3 py-2 leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline'
                           id='email'
                           type='email'
                           placeholder='Enter your email'
@@ -111,13 +111,13 @@ const PropertyPage = () => {
                       </div>
                       <div className='mb-4'>
                         <label
-                          className='block text-gray-700 text-sm font-bold mb-2'
+                          className='block mb-2 text-sm font-bold text-gray-700'
                           htmlFor='phone'
                         >
                           Phone:
                         </label>
                         <input
-                          className='shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline'
+                          className='w-full px-3 py-2 leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline'
                           id='phone'
                           type='text'
                           placeholder='Enter your phone number'
@@ -125,20 +125,20 @@ const PropertyPage = () => {
                       </div>
                       <div className='mb-4'>
                         <label
-                          className='block text-gray-700 text-sm font-bold mb-2'
+                          className='block mb-2 text-sm font-bold text-gray-700'
                           htmlFor='message'
                         >
                           Message:
                         </label>
                         <textarea
-                          className='shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 h-44 focus:outline-none focus:shadow-outline'
+                          className='w-full px-3 py-2 text-gray-700 border rounded shadow appearance-none h-44 focus:outline-none focus:shadow-outline'
                           id='message'
                           placeholder='Enter your message'
                         ></textarea>
                       </div>
                       <div>
                         <button
-                          className='bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded-full w-full focus:outline-none focus:shadow-outline flex items-center justify-center'
+                          className='flex items-center justify-center w-full px-4 py-2 font-bold text-white bg-blue-500 rounded-full hover:bg-blue-600 focus:outline-none focus:shadow-outline'
                           type='submit'
                         >
                           <FaPaperPlane className='mr-2' /> Send Message
@@ -150,6 +150,7 @@ const PropertyPage = () => {
               </div>
             </div>
           </section>
+          <PropImages images={property.images} />
         </>
       )}
     </>
