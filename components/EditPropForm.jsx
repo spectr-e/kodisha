@@ -133,7 +133,6 @@ const EditPropForm = () => {
       const resp = await fetch(`/api/properties/${id}`, {
         method: 'PUT',
         body: formData,
-        next: { revalidate: 60 },
       })
 
       if (resp.status === 200) {

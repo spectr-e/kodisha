@@ -8,7 +8,8 @@ const fetchProps = async () => {
       return []
     }
     const response = await fetch(`${apiDomain}/properties`, {
-      next: { revalidate: 60 }, // Revalidate every 60 seconds
+      cache: 'no-store',
+      // Revalidate every 60 seconds
     })
     if (!response.ok) {
       throw new Error('Failed to fetch data')
@@ -27,7 +28,9 @@ const fetchProp = async (id) => {
     if (!apiDomain) {
       return null
     }
-    const response = await fetch(`${apiDomain}/properties/${id}`)
+    const response = await fetch(`${apiDomain}/properties/${id}`, {
+      cache: 'no-store',
+    })
     if (!response.ok) {
       throw new Error('Failed to fetch data')
     }

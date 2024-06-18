@@ -24,9 +24,7 @@ const ProfilePage = () => {
       }
 
       try {
-        const resp = await fetch(`api/properties/user/${id}`, {
-          next: { revalidate: 60 },
-        })
+        const resp = await fetch(`api/properties/user/${id}`, {})
 
         if (resp.status === 200) {
           const data = await resp.json()
@@ -55,7 +53,6 @@ const ProfilePage = () => {
     try {
       const resp = await fetch(`api/properties/${id}`, {
         method: 'DELETE',
-        next: { revalidate: 60 },
       })
 
       if (resp.status === 200) {
