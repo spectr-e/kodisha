@@ -6,6 +6,7 @@ import {
   FaRulerCombined,
   FaMapMarker,
 } from 'react-icons/fa'
+import { PropMap } from '.'
 
 const PropDetails = ({ property }) => {
   return (
@@ -104,7 +105,9 @@ const PropDetails = ({ property }) => {
 
       {/* <!-- Mapbox --> */}
       <div className='p-6 mt-6 bg-white rounded-lg shadow-md'>
-        <div id='map'></div>
+        <div id='map'>
+          <PropMap property={property} />
+        </div>
       </div>
     </main>
   )

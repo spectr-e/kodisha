@@ -11,9 +11,11 @@ import Spinner from './Spinner'
 import AuthProvider from './AuthProvider'
 import AddPropForm from './AddPropForm'
 import EditPropForm from './EditPropForm'
-import PropImages from "./PropImages.jsx"
+import PropImages from './PropImages.jsx'
+import PropMap from './PropMap'
 // exports
 export {
+  PropMap,
   PropImages,
   EditPropForm,
   AddPropForm,
