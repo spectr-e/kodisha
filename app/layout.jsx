@@ -17,19 +17,7 @@ const MainLayout = ({ children }) => {
         <body>
           <NavBar />
           {children}
-          <ToastContainer
-            position='bottom-right'
-            autoClose={1900}
-            hideProgressBar={false}
-            newestOnTop={true}
-            closeOnClick={true}
-            rtl={false}
-            pauseOnFocusLoss={true}
-            draggable={false}
-            pauseOnHover={true}
-            theme='light'
-            transition='slide'
-          />
+          <ToastContainer position='bottom-right' theme='dark' />
           <Footer />
         </body>
       </html>

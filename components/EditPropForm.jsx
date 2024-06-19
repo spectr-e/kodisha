@@ -136,7 +136,7 @@ const EditPropForm = () => {
       })
 
       if (resp.status === 200) {
-        toast.success('Properties updated successfully!')
+        toast.success('Edited successfully!')
         router.push(`/properties/${id}`)
       } else if (resp.status === 401 || resp.status === 404) {
         toast.error('Permission denied!')
