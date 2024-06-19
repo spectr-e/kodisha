@@ -63,7 +63,10 @@ const NavBar = () => {
           <div className='flex items-center justify-center flex-1 md:items-stretch md:justify-start'>
             {/* <!-- Logo --> */}
             <Link className='flex items-center flex-shrink-0' href='/'>
-              <Image className='w-auto h-10' src={logoWhite} alt='Kodisha' />
+              <Image className='w-auto h-10' src={logoWhite} alt='Kodisha' 
+                        priority={true}
+              
+              />
 
               <span className='hidden ml-2 text-2xl font-bold text-white md:block'>
                 Kodisha
@@ -174,6 +177,8 @@ const NavBar = () => {
                       sizes='100vh'
                       width={0}
                       height={0}
+                        priority={true}
+
                     />
                   </button>
                 </div>

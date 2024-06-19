@@ -82,6 +82,7 @@ const ProfilePage = () => {
                   className='w-32 h-32 mx-auto rounded-full md:h-48 md:w-48 md:mx-0'
                   src={profileImg || profile}
                   alt='User'
+                  priority={true}
                 />
               </div>
               <h2 className='mb-4 text-lg'>
