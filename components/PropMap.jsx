@@ -19,24 +19,48 @@ const PropMap = ({ property }) => {
   })
   const [loading, setLoading] = useState(true)
 
+  // Handling erroneous addresses
+  const [geocodeErr, setGeocodeErr] = useState(false)
+
   // Geocoding
   useEffect(() => {
     const getCords = async () => {
-      const data = await fetchCords(property)
-      const [lng, lat] = data.features[0].center
-      setLng(lng)
-      setLat(lat)
-      setViewPort({
-        ...viewPort,
-        latitude: lat,
-        longitude: lng,
-      })
+      try {
+        const data = await fetchCords(property)
+
+        // check for results
+        if (!data && data.length === 0) {
+          // no valid address
+          setGeocodeErr(true)
+          setLoading(false)
+          return
+        }
+
+        const [lng, lat] = data.features[0].center
+        setLng(lng)
+        setLat(lat)
+        setViewPort({
+          ...viewPort,
+          latitude: lat,
+          longitude: lng,
+        })
+      } catch (error) {
+        console.log(error)
+        setGeocodeErr(true)
+        setLoading(false)
+      }
     }
     getCords()
-    setLoading(false)
   }, [])
 
   if (loading) <Spinner loading={loading} />
+
+  // where geocoding fails
+  if (geocodeErr) {
+    return (
+      <div className='text-xl font-bold text-center'> No Location Data</div>
+    )
+  }
 
   return (
     !loading && (
