@@ -4,8 +4,11 @@ import { useParams, useRouter } from 'next/navigation'
 import { useState, useEffect } from 'react'
 import { toast } from 'react-toastify'
 import { Spinner } from '.'
+import { useSession } from 'next-auth/react'
 
 const EditPropForm = () => {
+  const { data: session } = useSession()
+  const userId = session?.user?.id
   const { id } = useParams()
   const router = useRouter()
 
@@ -149,6 +152,10 @@ const EditPropForm = () => {
     } finally {
       setLoading(false)
     }
+  }
+
+  if (fields.owner !== userId) {
+    return <div className='font-bold text-center'>Not Authorized</div>
   }
 
   return loading ? (
