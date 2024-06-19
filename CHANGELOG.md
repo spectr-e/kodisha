@@ -2,6 +2,53 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.4](https://github.com/spectr-e/kodisha/compare/v0.1.3...v0.1.4) (2024-06-19)
+
+
+### Features
+
+* Add react map gl and mapbox gl to project ([3787295](https://github.com/spectr-e/kodisha/commit/3787295236625c388758fdd7664b9e57892df553))
+* **AddProp:** Add cloudinary to project and set property images to upload to cloudinary then save to db as link ([f38b945](https://github.com/spectr-e/kodisha/commit/f38b945bc203c5c9ad19aa49d43e11a94a85f23c))
+* **EditProp:** Create a page to edit property and a component to handle the form ([41bf609](https://github.com/spectr-e/kodisha/commit/41bf60956cfb002021e1fde0c36ef2ef1982f8e6))
+* **ProfilePage:** Create new page & import theme file ([8bd23e0](https://github.com/spectr-e/kodisha/commit/8bd23e003d4262577138f9de9d32f92c0ed77129))
+* **PropImages:** Add a container to hold the property images below the mapbox ([f38b700](https://github.com/spectr-e/kodisha/commit/f38b7000264cf0b0b7700097a7df33f70939f569))
+* **PropMap:** Create and import component to page ([da886ae](https://github.com/spectr-e/kodisha/commit/da886ae1ace880310345508d90bd929cb3ad99e0))
+* Replace alerts with React Toastify ([a08cebe](https://github.com/spectr-e/kodisha/commit/a08cebe8fa7ecbed818f6bf152a1368278fb6c3b))
+
+
+### Bug Fixes
+
+* Add geocoder dependencies ([777472e](https://github.com/spectr-e/kodisha/commit/777472e598eeb8d9fe0e0e4a5457ff14b5f32c39))
+* Add react geocode and map-gl dependencies ([cd096d1](https://github.com/spectr-e/kodisha/commit/cd096d1be7108659fed583a9ce21dd59a1c3215e))
+* **AddProp:** Attach a user id to the property data, connect to db ([4d639b9](https://github.com/spectr-e/kodisha/commit/4d639b9c195a3f22d6e35810665ba157d3c35d54))
+* **AddPropForm:** Remove empty strings from location object variable ([d30f25a](https://github.com/spectr-e/kodisha/commit/d30f25a5bf3f6fcc2225bba6f922c38c1ad5df5e))
+* **api/prop:** Edit cloudinary uploader code to allow uploading images ([707b980](https://github.com/spectr-e/kodisha/commit/707b980c2111599b36fbafcbc00da35fef2ee2fa))
+* **api/properties/id:** Add a PUT request function to the api route ([21cd9ee](https://github.com/spectr-e/kodisha/commit/21cd9eea560bd0fa6e1cf91179ee154a65eeccc6))
+* **api/properties:** Clean up the POST function ([37227c5](https://github.com/spectr-e/kodisha/commit/37227c5a3a707a36bdbfa00fe8d23efe5f33a140))
+* **api/properties:** Create a DELETE api route for properties ([cbf4886](https://github.com/spectr-e/kodisha/commit/cbf488673dfb1a63c425c55c5b22bc4ec44d1de2))
+* **api/prroperties/user:** Create an api to fetch user properties ([0179817](https://github.com/spectr-e/kodisha/commit/0179817b355e8492ce6b5ecedd6dc54ccc2967ae))
+* **authOpt:** Place return true from if function to the parent function! ([bf294fa](https://github.com/spectr-e/kodisha/commit/bf294fa526bee57e9c1f711200bae9023e8620be))
+* Change toast from danger type to error type, add revalidate to editprop form ([8e5838b](https://github.com/spectr-e/kodisha/commit/8e5838b40cc8f182b4528cc3b38c18265d867eee))
+* Do not store requests to the server ([fdef935](https://github.com/spectr-e/kodisha/commit/fdef935a8fcb6f9d09f6246077fdda9c5079689c))
+* **EditProp:** Add a submit handler logic to the form ([7417141](https://github.com/spectr-e/kodisha/commit/7417141475a813d18d60cf28389e296efbcba9da))
+* **EditProp:** Add loading spinner on state changes ([4e9d22d](https://github.com/spectr-e/kodisha/commit/4e9d22d2950c19d65c296817c5251175a31daf88))
+* **EditProp:** Edit null values into empty strings from the propdata fetched ([55b36bf](https://github.com/spectr-e/kodisha/commit/55b36bfd3e84efee05f06b01f3ee97c9fe83ed01))
+* **EditProp:** Fetch existing property data from db and put it onto the form ([6ba12d4](https://github.com/spectr-e/kodisha/commit/6ba12d4d8d8db1dfd50f9698410792b98d49f705))
+* **ProfilePage:** Define handle delete function & make the links dynamic ([7fabe6e](https://github.com/spectr-e/kodisha/commit/7fabe6e33e7452fb7ded4b63e2a046fa7b6bd322))
+* **ProfilePage:** Edit profile pic, name and email to be dynamic ([3153e92](https://github.com/spectr-e/kodisha/commit/3153e92a13f0b0380a456ba148d4751ff712f10b))
+* **ProfilePage:** Edit to adjust font size for profile name and email ([e04667b](https://github.com/spectr-e/kodisha/commit/e04667b2fc99008653396fa3203e1dbd849d5825))
+* **ProfilePage:** Make the properties displayed dynamic ([f84159a](https://github.com/spectr-e/kodisha/commit/f84159aca4d16b845a4d4f3819339ed7abf90a72))
+* **PropCard:** Space the features of the property accordingly ([18e77ea](https://github.com/spectr-e/kodisha/commit/18e77ea0731e8b85034b15efbf162cff061c63b1))
+* **PropDetails:** Flex the beds, baths, sq properties display ([6347fb7](https://github.com/spectr-e/kodisha/commit/6347fb7b747288d6567dc51a78bd4324a97cc17c))
+* **PropMap:** Add the mapbox with marker to the component ([dbd50c0](https://github.com/spectr-e/kodisha/commit/dbd50c067276cdeb9cbd3512ce8c5d9bcc08b1a3))
+* Remove geocoder, use mapbox geocoder api, add new request to utils ([1a57057](https://github.com/spectr-e/kodisha/commit/1a570573e812118f14a5ada778b9784ce0fd8b11))
+* Remove react geocode dependency ([79e502a](https://github.com/spectr-e/kodisha/commit/79e502a2eae9c6186c428e01172bf4ed21423eab))
+* Revert back to next auth v4 ([7116e1c](https://github.com/spectr-e/kodisha/commit/7116e1c188c5514c4e918e8ed773e871c7b13aa4))
+* Update app to handle dynamic caching of db ([edeeda5](https://github.com/spectr-e/kodisha/commit/edeeda59dae417e67f4d0b25aeb4c7cbb6717a7f))
+* Update next auth to version 5 and refactor POST function for props ([d93736c](https://github.com/spectr-e/kodisha/commit/d93736c0cffc2b22542bb11034c27cc8f2c2f413))
+* Update toast container with custom format values ([047e9e6](https://github.com/spectr-e/kodisha/commit/047e9e6b5d03d0584095dada467129931d3b76df))
+* Wrap up the handle delete function ([9fa8c8d](https://github.com/spectr-e/kodisha/commit/9fa8c8dffee59d56cb71dcc33d5d952330ffd8d5))
+
 ### [0.1.3](https://github.com/spectr-e/kodisha/compare/v0.1.2...v0.1.3) (2024-06-03)
 
 
