@@ -10,7 +10,6 @@
   },
   "dependencies": {
     "cloudinary": "^2.2.0",
-    "geocoder": "^0.2.3",
     "mapbox-gl": "^3.4.0",
     "mongodb": "^6.6.2",
     "moongose": "^1.0.0",

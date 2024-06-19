@@ -4,8 +4,8 @@ import { Map, Marker } from 'react-map-gl'
 import { Spinner } from '.'
 import { pin } from '@/assets/images'
 import Image from 'next/image'
-import geocoder from 'geocoder'
 import 'mapbox-gl/dist/mapbox-gl.css'
+import { fetchCords } from '@/utils/requests'
 
 const PropMap = ({ property }) => {
   const [lat, setLat] = useState(null)
@@ -19,7 +19,24 @@ const PropMap = ({ property }) => {
   })
   const [loading, setLoading] = useState(true)
 
-  return <div></div>
+  // Geocoding
+  useEffect(() => {
+    const getCords = async () => {
+      const data = await fetchCords(property)
+      const [lng, lat] = data.features[0].center
+      setLng(lng)
+      setLat(lat)
+      setViewPort({
+        ...viewPort,
+        latitude: lat,
+        longitude: lng,
+      })
+    }
+    getCords()
+    setLoading(false)
+  }, [])
+
+  return <div>MapBox</div>
 }
 
 export default PropMap

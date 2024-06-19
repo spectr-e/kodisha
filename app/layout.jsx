@@ -21,12 +21,12 @@ const MainLayout = ({ children }) => {
             position='bottom-right'
             autoClose={1900}
             hideProgressBar={false}
-            newestOnTop
-            closeOnClick
+            newestOnTop={true}
+            closeOnClick={true}
             rtl={false}
-            pauseOnFocusLoss
+            pauseOnFocusLoss={true}
             draggable={false}
-            pauseOnHover
+            pauseOnHover={true}
             theme='light'
             transition='slide'
           />
