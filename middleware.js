@@ -5,5 +5,6 @@ export const config = {
     '/profile',
     '/properties/saved',
     '/notifications',
+    '/properties/:id/edit',
   ],
 }
