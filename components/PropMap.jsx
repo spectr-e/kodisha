@@ -13,7 +13,7 @@ const PropMap = ({ property }) => {
   const [viewPort, setViewPort] = useState({
     latitude: 0,
     longitude: 0,
-    zoom: 12,
+    zoom: 16,
     width: '100%',
     height: '500px',
   })
@@ -27,7 +27,6 @@ const PropMap = ({ property }) => {
     const getCords = async () => {
       try {
         const data = await fetchCords(property)
-
         // check for results
         if (!data && data.length === 0) {
           // no valid address
@@ -39,11 +38,9 @@ const PropMap = ({ property }) => {
         const [lng, lat] = data.features[0].center
         setLng(lng)
         setLat(lat)
-        setViewPort({
-          ...viewPort,
-          latitude: lat,
-          longitude: lng,
-        })
+        setViewPort({ ...viewPort, latitude: lat, longitude: lng })
+        console.log({ lat, lng })
+        setLoading(false)
       } catch (error) {
         console.log(error)
         setGeocodeErr(true)
@@ -53,8 +50,6 @@ const PropMap = ({ property }) => {
     getCords()
   }, [])
 
-  if (loading) <Spinner loading={loading} />
-
   // where geocoding fails
   if (geocodeErr) {
     return (
@@ -62,26 +57,26 @@ const PropMap = ({ property }) => {
     )
   }
 
-  return (
-    !loading && (
-      <Map
-        mapboxAccessToken={process.env.NEXT_PUBLIC_MAPBOX_TOKEN}
-        mapLib={import('mapbox-gl')}
-        {...viewPort}
-        style={{ width: '100%', height: 500 }}
-        mapStyle='mapbox://styles/mapbox/streets-v12'
-      >
-        <Marker latitude={lat} longitude={lng} anchor='bottom'>
-          <Image
-            src={pin}
-            width={40}
-            height={40}
-            alt='location'
-            priority={true}
-          />
-        </Marker>
-      </Map>
-    )
+  return loading ? (
+    <Spinner loading={loading} />
+  ) : (
+    <Map
+      {...viewPort}
+      mapboxAccessToken={process.env.NEXT_PUBLIC_MAPBOX_TOKEN}
+      mapLib={import('mapbox-gl')}
+      style={{ width: '100%', height: 500 }}
+      mapStyle='mapbox://styles/mapbox/streets-v12'
+    >
+      <Marker latitude={lat} longitude={lng} anchor='bottom'>
+        <Image
+          src={pin}
+          width={40}
+          height={40}
+          alt='location'
+          priority={true}
+        />
+      </Marker>
+    </Map>
   )
 }
 
