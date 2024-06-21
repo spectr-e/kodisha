@@ -21,7 +21,7 @@ const InfoBoxes = () => {
             heading={'For Property Owners'}
             bgColor='bg-blue-100'
             btnInfo={{
-              text: 'Browse Properties',
+              text: 'Add Properties',
               link: '/properties/add',
               bgColor: 'bg-blue-500',
             }}
