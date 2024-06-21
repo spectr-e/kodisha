@@ -2,9 +2,9 @@
 import { useEffect, useState } from 'react'
 import { useParams } from 'next/navigation'
 import { fetchProp } from '@/utils/requests'
-import { PropDetails, PropHeadImg, Spinner, PropImages } from '@/components'
+import { PropDetails, PropHeadImg, Spinner, PropImages, BookmarkBtn } from '@/components'
 import Link from 'next/link'
-import { FaArrowLeft, FaBookmark, FaPaperPlane, FaShare } from 'react-icons/fa'
+import { FaArrowLeft, FaPaperPlane, FaShare } from 'react-icons/fa'
 
 const PropertyPage = () => {
   const { id } = useParams()
@@ -66,9 +66,7 @@ const PropertyPage = () => {
                 <PropDetails property={property} />
                 {/* <!-- Sidebar --> */}
                 <aside className='space-y-4'>
-                  <button className='flex items-center justify-center w-full px-4 py-2 font-bold text-white bg-blue-500 rounded-full hover:bg-blue-600'>
-                    <FaBookmark className='mr-2' /> Bookmark Property
-                  </button>
+                  <BookmarkBtn property={property} />
                   <button className='flex items-center justify-center w-full px-4 py-2 font-bold text-white bg-orange-500 rounded-full hover:bg-orange-600'>
                     <FaShare className='mr-2' /> Share Property
                   </button>
