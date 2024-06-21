@@ -2,9 +2,16 @@
 import { useEffect, useState } from 'react'
 import { useParams } from 'next/navigation'
 import { fetchProp } from '@/utils/requests'
-import { PropDetails, PropHeadImg, Spinner, PropImages, BookmarkBtn } from '@/components'
+import {
+  PropDetails,
+  PropHeadImg,
+  Spinner,
+  PropImages,
+  BookmarkBtn,
+} from '@/components'
 import Link from 'next/link'
 import { FaArrowLeft, FaPaperPlane, FaShare } from 'react-icons/fa'
+import ShareBtn from '@/components/ShareBtn'
 
 const PropertyPage = () => {
   const { id } = useParams()
@@ -67,9 +74,7 @@ const PropertyPage = () => {
                 {/* <!-- Sidebar --> */}
                 <aside className='space-y-4'>
                   <BookmarkBtn property={property} />
-                  <button className='flex items-center justify-center w-full px-4 py-2 font-bold text-white bg-orange-500 rounded-full hover:bg-orange-600'>
-                    <FaShare className='mr-2' /> Share Property
-                  </button>
+                  <ShareBtn property={property} />
 
                   {/* <!-- Contact Form --> */}
                   <div className='p-6 bg-white rounded-lg shadow-md'>
