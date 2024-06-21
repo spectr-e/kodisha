@@ -14,8 +14,13 @@ import EditPropForm from './EditPropForm'
 import PropImages from './PropImages.jsx'
 import PropMap from './PropMap'
 import BookmarkBtn from './BookmarkBtn'
+import ShareBtn from './ShareBtn'
+import PropContactForm from './PropContactForm'
+
 // exports
 export {
+  ShareBtn,
+  PropContactForm,
   BookmarkBtn,
   PropMap,
   PropImages,
