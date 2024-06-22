@@ -28,7 +28,8 @@ export const POST = async (request) => {
 
     if (isBookmarked) {
       // if bookmarked, remove
-      user.bookmarks.pull('propertyId')
+      user.bookmarks.pull(propertyId)
+      isBookmarked = false
       message = 'Bookmark removed successfully!'
     } else {
       // if not bookmarked, add
