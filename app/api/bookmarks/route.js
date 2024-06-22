@@ -1,4 +1,5 @@
 import connectDB from '@/config/database'
+import Property from '@/model/Property'
 import User from '@/model/User'
 import { getSessionUser } from '@/utils/getSessionUser'
 
@@ -48,7 +49,7 @@ export const POST = async (request) => {
   }
 }
 
-// GET /aoi/bookmarks
+// GET /api/bookmarks
 export const GET = async (req) => {
   try {
     await connectDB()
@@ -65,7 +66,7 @@ export const GET = async (req) => {
     const user = await User.findById(userId)
 
     // get bookmarks from user and their associated properties details
-    const bookmarks = await Property.find({ id: { $in: user.bookmarks } })
+    const bookmarks = await Property.find({ _id: { $in: user.bookmarks } })
     return new Response(JSON.stringify({ bookmarks }), {
       status: 200,
     })
