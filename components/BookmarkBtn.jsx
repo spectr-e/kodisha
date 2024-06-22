@@ -12,6 +12,10 @@ const BookmarkBtn = ({ property }) => {
   const [loading, setLoading] = useState(false)
 
   useEffect(() => {
+    if (!userId) {
+      return
+    }
+
     setLoading(true)
     const checkBookmark = async () => {
       try {
@@ -67,7 +71,7 @@ const BookmarkBtn = ({ property }) => {
   }
 
   return loading ? (
-    <Spinner loading={loading} />
+    <p className='text-sm font-bold text-center'>Loading...</p>
   ) : (
     <button
       onClick={handleBookmark}
