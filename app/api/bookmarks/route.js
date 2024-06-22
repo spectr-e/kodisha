@@ -23,6 +23,28 @@ export const POST = async (request) => {
     // find user in db
     const user = await User.findById(userId)
 
+    // check if user owns property
+    const property = await Property.findById(propertyId)
+    if (!property) {
+      return new Response(
+        { message: 'Property not found!', isBookmarked: false },
+        {
+          status: 404,
+        }
+      )
+    }
+    if (property.owner.toString() === userId) {
+      return new Response(
+        JSON.stringify({
+          message: 'You own this property!',
+          isBookmarked: false,
+        }),
+        {
+          status: 201,
+        }
+      )
+    }
+
     // check if property is already bookmarked
     let isBookmarked = user.bookmarks.includes(propertyId)
     let message

@@ -9,14 +9,12 @@ const BookmarkBtn = ({ property }) => {
   const { data: session } = useSession()
   const userId = session?.user?.id
   const [isBookmarked, setIsBookmarked] = useState(false)
-  const [loading, setLoading] = useState(false)
+  const [loading, setLoading] = useState(true)
 
   useEffect(() => {
     if (!userId) {
       return
     }
-
-    setLoading(true)
     const checkBookmark = async () => {
       try {
         const response = await fetch('/api/bookmarks/check', {
@@ -56,10 +54,13 @@ const BookmarkBtn = ({ property }) => {
         },
         body: JSON.stringify({ propertyId: property._id }),
       })
+      const data = await response.json()
 
-      if (response.ok) {
-        const data = await response.json()
+      if (response.status === 200) {
         toast.success(data.message)
+        setIsBookmarked(data.isBookmarked)
+      } else if (response.status === 201) {
+        toast.warn(data.message)
         setIsBookmarked(data.isBookmarked)
       }
     } catch (err) {

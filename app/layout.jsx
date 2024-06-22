@@ -17,7 +17,7 @@ const MainLayout = ({ children }) => {
         <body>
           <NavBar />
           {children}
-          <ToastContainer position='bottom-right' theme='dark' />
+          <ToastContainer />
           <Footer />
         </body>
       </html>
