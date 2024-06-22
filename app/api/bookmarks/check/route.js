@@ -22,9 +22,9 @@ export const POST = async (request) => {
     const user = await User.findById(userId)
 
     // check if property is already bookmarked
-    let isBookmarked = user.bookmarks.includes(propertyId)
+    const isBookmarked = user.bookmarks.includes(propertyId)
 
-    return new Response(JSON.stringify({ message, isBookmarked }), {
+    return new Response(JSON.stringify({ isBookmarked }), {
       status: 200,
     })
   } catch (err) {

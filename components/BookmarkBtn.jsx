@@ -11,6 +11,31 @@ const BookmarkBtn = ({ property }) => {
   const [isBookmarked, setIsBookmarked] = useState(false)
   const [loading, setLoading] = useState(false)
 
+  useEffect(() => {
+    setLoading(true)
+    const checkBookmark = async () => {
+      try {
+        const response = await fetch('/api/bookmarks/check', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ propertyId: property._id }),
+        })
+
+        if (response.ok) {
+          const data = await response.json()
+          setIsBookmarked(data.isBookmarked)
+        }
+      } catch (err) {
+        console.log(err)
+      } finally {
+        setLoading(false)
+      }
+    }
+    checkBookmark()
+  }, [property._id, userId])
+
   const handleBookmark = async () => {
     setLoading(true)
     if (!userId) {
