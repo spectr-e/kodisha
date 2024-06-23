@@ -1,13 +1,31 @@
 'use client'
 
+import { useRouter } from 'next/navigation'
 import { useState } from 'react'
 
 const SearchForm = () => {
   const [location, setLocation] = useState('')
   const [propType, setPropType] = useState('All')
+  const router = useRouter()
+
+  const handleSubmit = (e) => {
+    e.preventDefault()
+
+    // if the prop type is all redirect to the properties page
+    if (location === '' && propType === 'All') {
+      router.push('/properties')
+    } else {
+      // redirect to search results page AND have query params in the url(location & property type)
+      const query = `?location=${location}&propType=${propType}`
+      router.push(`/properties/search-results/${query}`)
+    }
+  }
 
   return (
-    <form className='flex flex-col items-center w-full max-w-2xl mx-auto mt-3 md:flex-row'>
+    <form
+      onSubmit={handleSubmit}
+      className='flex flex-col items-center w-full max-w-2xl mx-auto mt-3 md:flex-row'
+    >
       {/* <!-- Location Input --> */}
       <div className='w-full mb-4 md:w-3/5 md:pr-2 md:mb-0'>
         <label htmlFor='location' className='sr-only'>
