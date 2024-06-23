@@ -63,9 +63,11 @@ const NavBar = () => {
           <div className='flex items-center justify-center flex-1 md:items-stretch md:justify-start'>
             {/* <!-- Logo --> */}
             <Link className='flex items-center flex-shrink-0' href='/'>
-              <Image className='w-auto h-10' src={logoWhite} alt='Kodisha' 
-                        priority={true}
-              
+              <Image
+                className='w-auto h-10'
+                src={logoWhite}
+                alt='Kodisha'
+                priority={true}
               />
 
               <span className='hidden ml-2 text-2xl font-bold text-white md:block'>
@@ -129,7 +131,7 @@ const NavBar = () => {
           {session && (
             <div className='absolute inset-y-0 right-0 flex items-center pr-2 md:static md:inset-auto md:ml-6 md:pr-0'>
               {/* <!-- Notifications button --> */}
-              <Link href='/notifications' className='relative group'>
+              <Link href='/messages' className='relative group'>
                 <button
                   type='button'
                   className='relative p-1 text-gray-400 bg-gray-800 rounded-full hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800'
@@ -177,8 +179,7 @@ const NavBar = () => {
                       sizes='100vh'
                       width={0}
                       height={0}
-                        priority={true}
-
+                      priority={true}
                     />
                   </button>
                 </div>
