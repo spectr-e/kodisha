@@ -1,6 +1,6 @@
 'use client'
 
-import { PropCard, Spinner } from '@/components'
+import { PropCard, SearchForm, Spinner } from '@/components'
 import Link from 'next/link'
 import { useSearchParams } from 'next/navigation'
 import { useEffect, useState } from 'react'
@@ -38,30 +38,40 @@ const SearchResultsPage = () => {
     fetchSearchProps()
   }, [location, propType])
 
-  return loading ? (
-    <Spinner loading={loading} />
-  ) : (
-    <section className='px-4 py-6'>
-      <div className='px-4 py-6 m-auto container-xl lg:container'>
-        <Link
-          href='/properties'
-          className='flex items-center mb-3 text-blue-500 hover:underline'
-        >
-          <FaArrowAltCircleLeft className='mb-1 mr-2' />
-          Back to Properties
-        </Link>
-        <h1 className='mb-4 text-2xl'>Search Results</h1>
-        {!props ? (
-          <p>No Results Found</p>
-        ) : (
-          <div className='grid grid-cols-1 gap-6 md:grid-cols-3'>
-            {props.map((prop, i) => (
-              <PropCard property={prop} key={i} />
-            ))}
+  return (
+    <>
+      <section className='py-4 bg-blue-700'>
+        <div className='flex flex-col items-start px-4 mx-auto max-w-7xl sm:px-6 lg:px-8'>
+          <SearchForm />
+        </div>
+      </section>
+
+      {loading ? (
+        <Spinner loading={loading} />
+      ) : (
+        <section className='px-4 py-6'>
+          <div className='px-4 py-6 m-auto container-xl lg:container'>
+            <Link
+              href='/properties'
+              className='flex items-center mb-3 text-blue-500 hover:underline'
+            >
+              <FaArrowAltCircleLeft className='mb-1 mr-2' />
+              Back to Properties
+            </Link>
+            <h1 className='mb-4 text-2xl'>Search Results</h1>
+            {!props ? (
+              <p>No Results Found</p>
+            ) : (
+              <div className='grid grid-cols-1 gap-6 md:grid-cols-3'>
+                {props.map((prop, i) => (
+                  <PropCard property={prop} key={i} />
+                ))}
+              </div>
+            )}
           </div>
-        )}
-      </div>
-    </section>
+        </section>
+      )}
+    </>
   )
 }
 

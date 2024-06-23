@@ -36,7 +36,7 @@ const SearchForm = () => {
           id='location'
           value={location}
           onChange={(e) => setLocation(e.target.value)}
-          placeholder='Enter Location (City, State, Zip, etc'
+          placeholder='Enter Keywords or Location (City, State, Zip, etc'
           className='w-full px-4 py-3 text-gray-800 bg-white rounded-lg focus:outline-none focus:ring focus:ring-blue-500'
         />
       </div>
