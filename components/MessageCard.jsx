@@ -14,19 +14,20 @@ const MessageCard = ({ message }) => {
           </li>
 
           <li>
-            <strong>Reply Email:</strong>
+            <strong>Email: </strong>
             <a href={`mailto:${message.email}`} className='text-blue-500'>
               {message.email}
             </a>
           </li>
           <li>
-            <strong>Reply Phone:</strong>
-            <a href='tel:123-456-7890' className='text-blue-500'>
+            <strong>Phone: </strong>
+            <a href={`tel:${message.phone}`} className='text-blue-500'>
               {message.phone}
             </a>
           </li>
           <li>
-            <strong>Received:</strong> {message.timestamp}
+            <strong>Received: </strong>{' '}
+            {new Date(message.createdAt).toLocaleString()}
           </li>
         </ul>
         <button className='px-3 py-1 mt-4 mr-3 text-white bg-blue-500 rounded-md'>
