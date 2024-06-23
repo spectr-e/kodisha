@@ -26,19 +26,29 @@ const PropContactForm = ({ property }) => {
         },
         body: JSON.stringify(formData),
       })
+      const data = await resp.json()
       if (resp.ok) {
-        const data = await resp.json()
         setSubmitted(true)
-        toast.success('Your message has been sent successfully')
+        toast.success(data.message)
+      } else if (resp.status === 400 || resp.status === 401) {
+        toast.warn(data.message)
       } else {
         console.log(resp.statusText)
         toast.error('Message not sent!')
       }
     } catch (e) {
-      toast.error('Something went wrong!')
       console.log(e)
+      toast.error('Something went wrong!')
     } finally {
       setLoading(false)
+      setFormData({
+        name: '',
+        email: '',
+        phone: '',
+        message: '',
+        recipient: property.owner,
+        property: property._id,
+      })
     }
   }
 

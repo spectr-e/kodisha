@@ -15,7 +15,10 @@ export const POST = async (req) => {
     const { user } = sessionUser
     // if not authorized
     if (!sessionUser || !sessionUser.userId) {
-      return new Response('Not authorized - User ID required!', { status: 401 })
+      return new Response(
+        JSON.stringify({ message: 'Not authorized - Please log in!' }),
+        { status: 401 }
+      )
     }
     // c. get the form data
     const { name, email, message, phone, recipient, property } =
