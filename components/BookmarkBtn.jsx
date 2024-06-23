@@ -13,6 +13,7 @@ const BookmarkBtn = ({ property }) => {
 
   useEffect(() => {
     if (!userId) {
+      setLoading(false)
       return
     }
     const checkBookmark = async () => {
@@ -71,7 +72,11 @@ const BookmarkBtn = ({ property }) => {
     }
   }
 
-  return loading ? (
+  return !session ? (
+    <p className='text-xl font-bold text-center text-red-500'>
+      Login to bookmark property
+    </p>
+  ) : loading ? (
     <p className='text-sm font-bold text-center'>Loading...</p>
   ) : (
     <button
