@@ -1,19 +1,45 @@
 'use client'
 import { FaPaperPlane } from 'react-icons/fa'
 import { useState } from 'react'
+import { toast } from 'react-toastify'
 
 const PropContactForm = ({ property }) => {
+  const [loading, setLoading] = useState(false)
   const [submitted, setSubmitted] = useState(false)
   const [formData, setFormData] = useState({
     name: '',
     email: '',
     phone: '',
     message: '',
+    recipient: property.owner,
+    property: property._id,
   })
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault()
-    setSubmitted(true)
+    setLoading(true)
+    try {
+      const resp = await fetch('/api/messages', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      })
+      if (resp.ok) {
+        const data = await resp.json()
+        setSubmitted(true)
+        toast.success('Your message has been sent successfully')
+      } else {
+        console.log(resp.statusText)
+        toast.error('Message not sent!')
+      }
+    } catch (e) {
+      toast.error('Something went wrong!')
+      console.log(e)
+    } finally {
+      setLoading(false)
+    }
   }
 
   return (
