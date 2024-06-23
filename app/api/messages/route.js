@@ -5,6 +5,38 @@ import { getSessionUser } from '@/utils/getSessionUser'
 // to avoid deployment issues
 export const dynamic = 'force-dynamic'
 
+// GET /api/messages
+export const GET = async (req) => {
+  try {
+    // a. connect to db
+    await connectDB()
+    // b. get the userid to attach to property
+    const sessionUser = await getSessionUser()
+    const { userId } = sessionUser
+    // if not authorized
+    if (!sessionUser || !sessionUser.userId) {
+      return new Response(
+        JSON.stringify({ message: 'Not authorized - Please log in!' }),
+        { status: 401 }
+      )
+    }
+    // c. get the user messages
+    const messages = await Message.find({
+      recipient: userId,
+    })
+      .populate('sender', 'name')
+      .populate('property', 'title')
+
+    // d. return the messages
+    return new Response(JSON.stringify({ messages }), {
+      status: 200,
+    })
+  } catch (err) {
+    console.log(err)
+    return new Response('Something went wrong!', { status: 500 })
+  }
+}
+
 // POST /api/messages
 export const POST = async (req) => {
   try {
