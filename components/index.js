@@ -18,8 +18,11 @@ import ShareBtn from './ShareBtn'
 import PropContactForm from './PropContactForm'
 import SearchForm from './SearchForm'
 import Messages from './Messages'
+import MessageCard from './MessageCard'
+
 // exports
 export {
+  MessageCard,
   Messages,
   ShareBtn,
   SearchForm,
