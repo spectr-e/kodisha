@@ -24,17 +24,14 @@ export const GET = async (req) => {
     }
 
     // if proptype is specified (not "all"), add it to query
-    if (propType && propType !== 'All') {
+    if (propType && (propType !== 'All' || 'all')) {
       const typePattern = new RegExp(propType, 'i')
       query.type = typePattern
     }
 
-    return new Response(
-      JSON.stringify({
-        message: 'Success',
-      }),
-      { status: 200 }
-    )
+    const properties = await Property.find(query)
+
+    return new Response(JSON.stringify(properties), { status: 200 })
   } catch (error) {
     console.log(error)
     return new Response('Something is not right', { status: 500 })
