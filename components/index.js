@@ -16,10 +16,11 @@ import PropMap from './PropMap'
 import BookmarkBtn from './BookmarkBtn'
 import ShareBtn from './ShareBtn'
 import PropContactForm from './PropContactForm'
-
+import SearchForm from './SearchForm'
 // exports
 export {
   ShareBtn,
+  SearchForm,
   PropContactForm,
   BookmarkBtn,
   PropMap,
