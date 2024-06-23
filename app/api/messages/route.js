@@ -28,7 +28,7 @@ export const GET = async (req) => {
       .populate('property', 'title')
 
     // d. return the messages
-    return new Response(JSON.stringify({ messages }), {
+    return new Response(JSON.stringify(messages), {
       status: 200,
     })
   } catch (err) {
