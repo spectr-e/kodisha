@@ -2,10 +2,7 @@ const MessageCard = ({ message }) => {
   return (
     <div className='space-y-4'>
       <div className='relative p-4 bg-white border border-gray-200 rounded-md shadow-md'>
-        <h2 className='mb-4 text-xl'>
-          <span className='font-bold'>Property Inquiry: </span>
-          {message.property.name}
-        </h2>
+        <h2 className='mb-4 text-xl font-bold'>{message.property.name}</h2>
         <p className='text-gray-700'>{message.body}</p>
 
         <ul className='mt-4'>
