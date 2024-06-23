@@ -1,37 +1,32 @@
-const MessageCard = ({ messaage }) => {
+const MessageCard = ({ message }) => {
   return (
     <div className='space-y-4'>
       <div className='relative p-4 bg-white border border-gray-200 rounded-md shadow-md'>
         <h2 className='mb-4 text-xl'>
-          <span className='font-bold'>Property Inquiry:</span>
-          Boston Commons Retreat
+          <span className='font-bold'>Property Inquiry: </span>
+          {message.property.name}
         </h2>
-        <p className='text-gray-700'>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Obcaecati
-          libero nobis vero quos aspernatur nemo alias nam, odit dolores sed
-          quaerat illum impedit quibusdam officia ad voluptatibus molestias
-          sequi? Repudiandae!
-        </p>
+        <p className='text-gray-700'>{message.body}</p>
 
         <ul className='mt-4'>
           <li>
-            <strong>Name:</strong> John Doe
+            <strong>Name:</strong> {message.name}
           </li>
 
           <li>
             <strong>Reply Email:</strong>
-            <a href='mailto:recipient@example.com' className='text-blue-500'>
-              recipient@example.com
+            <a href={`mailto:${message.email}`} className='text-blue-500'>
+              {message.email}
             </a>
           </li>
           <li>
             <strong>Reply Phone:</strong>
             <a href='tel:123-456-7890' className='text-blue-500'>
-              123-456-7890
+              {message.phone}
             </a>
           </li>
           <li>
-            <strong>Received:</strong>1/1/2024 12:00 PM
+            <strong>Received:</strong> {message.timestamp}
           </li>
         </ul>
         <button className='px-3 py-1 mt-4 mr-3 text-white bg-blue-500 rounded-md'>
