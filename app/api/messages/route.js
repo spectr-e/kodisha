@@ -25,7 +25,7 @@ export const GET = async (req) => {
       recipient: userId,
     })
       .populate('sender', 'name')
-      .populate('property', 'title')
+      .populate('property', 'name')
 
     // d. return the messages
     return new Response(JSON.stringify(messages), {
