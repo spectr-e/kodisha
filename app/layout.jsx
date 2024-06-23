@@ -14,7 +14,7 @@ const MainLayout = ({ children }) => {
   return (
     <AuthProvider>
       <html lang='en'>
-        <body>
+        <body suppressHydrationWarning={true}>
           <NavBar />
           {children}
           <ToastContainer />

@@ -24,7 +24,7 @@ export const GET = async (req) => {
     }
 
     // if proptype is specified (not "all"), add it to query
-    if (propType && (propType !== 'All' || 'all')) {
+    if (propType && propType !== 'All') {
       const typePattern = new RegExp(propType, 'i')
       query.type = typePattern
     }
