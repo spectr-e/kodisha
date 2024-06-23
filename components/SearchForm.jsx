@@ -1,4 +1,11 @@
+'use client'
+
+import { useState } from 'react'
+
 const SearchForm = () => {
+  const [location, setLocation] = useState('')
+  const [propType, setPropType] = useState('All')
+
   return (
     <form className='flex flex-col items-center w-full max-w-2xl mx-auto mt-3 md:flex-row'>
       {/* <!-- Location Input --> */}
@@ -9,6 +16,8 @@ const SearchForm = () => {
         <input
           type='text'
           id='location'
+          value={location}
+          onChange={(e) => setLocation(e.target.value)}
           placeholder='Enter Location (City, State, Zip, etc'
           className='w-full px-4 py-3 text-gray-800 bg-white rounded-lg focus:outline-none focus:ring focus:ring-blue-500'
         />
@@ -21,6 +30,8 @@ const SearchForm = () => {
         </label>
         <select
           id='property-type'
+          value={propType}
+          onChange={(e) => setPropType(e.target.value)}
           className='w-full px-4 py-3 text-gray-800 bg-white rounded-lg focus:outline-none focus:ring focus:ring-blue-500'
         >
           <option value='All'>All</option>
