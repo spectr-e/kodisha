@@ -10,7 +10,24 @@ export const GET = async (req) => {
     const location = searchParams.get('location')
     const propType = searchParams.get('propType')
 
-    console.log({ location, propType })
+    // match location to description (keyword) or location (street, city, etc)
+    const locationPattern = new RegExp(location, 'i')
+    let query = {
+      $or: [
+        { name: locationPattern },
+        { description: locationPattern },
+        { 'location.street': locationPattern },
+        { 'location.state': locationPattern },
+        { 'location.city': locationPattern },
+        { 'location.zipcode': locationPattern },
+      ],
+    }
+
+    // if proptype is specified (not "all"), add it to query
+    if (propType && propType !== 'All') {
+      const typePattern = new RegExp(propType, 'i')
+      query.type = typePattern
+    }
 
     return new Response(
       JSON.stringify({
