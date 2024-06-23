@@ -2,8 +2,11 @@
 import { FaPaperPlane } from 'react-icons/fa'
 import { useState } from 'react'
 import { toast } from 'react-toastify'
+import { Spinner } from '.'
+import { useSession } from 'next-auth/react'
 
 const PropContactForm = ({ property }) => {
+  const { data: session } = useSession()
   const [loading, setLoading] = useState(false)
   const [submitted, setSubmitted] = useState(false)
   const [formData, setFormData] = useState({
@@ -52,10 +55,14 @@ const PropContactForm = ({ property }) => {
     }
   }
 
-  return (
+  return loading ? (
+    <Spinner loading={loading} />
+  ) : (
     <div className='p-6 bg-white rounded-lg shadow-md'>
       <h3 className='mb-6 text-xl font-bold'>Contact Property Manager</h3>
-      {submitted ? (
+      {!session ? (
+        <p>You must be logged in to send a message</p>
+      ) : submitted ? (
         <p className='mb-4 text-orange-500'>
           Your message has been sent successfully
         </p>
