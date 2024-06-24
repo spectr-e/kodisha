@@ -27,7 +27,7 @@ export const GET = async (req) => {
       read: false,
     })
     // d. return the count
-    return new Response(JSON.stringify({ count: unreadCount }), {
+    return new Response(JSON.stringify(unreadCount), {
       status: 200,
     })
   } catch (err) {

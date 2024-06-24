@@ -154,7 +154,7 @@ const NavBar = () => {
                     />
                   </svg>
                 </button>
-                <UnreadCounter />
+                <UnreadCounter session={session} />
               </Link>
 
               {/* <!-- Profile dropdown button --> */}
