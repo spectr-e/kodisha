@@ -1,12 +1,31 @@
 'use client'
 
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import { toast } from 'react-toastify'
 
 const MessageCard = ({ message }) => {
   const [read, setRead] = useState(message.read)
 
-  const handleRead = async () => {}
+  const handleRead = async () => {
+    try {
+      const res = await fetch(`/api/messages/${message._id}`, {
+        method: 'PUT',
+      })
+
+      if (res.status === 200) {
+        const { read } = await res.json()
+        setRead(read)
+        if (read) {
+          toast.success('Message marked as read!')
+        } else {
+          toast.success('Message marked as unread!')
+        }
+      }
+    } catch (e) {
+      console.log(e)
+      toast.error('Unable to mark message as (un)read!')
+    }
+  }
 
   return (
     <div className='space-y-4'>
@@ -47,7 +66,7 @@ const MessageCard = ({ message }) => {
             read ? 'bg-gray-300' : 'bg-blue-500 text-white'
           } rounded-md`}
         >
-          {read ? 'Mark as Unread' : 'Mark As Read'}
+          {read ? 'Mark As Unread' : 'Mark As Read'}
         </button>
         <button className='px-3 py-1 mt-4 text-white bg-red-500 rounded-md'>
           Delete

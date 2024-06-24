@@ -24,7 +24,6 @@ export const PUT = async (req, { params }) => {
     }
     // c. messageId
     const { id } = params
-
     // d. find message by id
     const message = await Message.findById(id)
 
@@ -43,7 +42,7 @@ export const PUT = async (req, { params }) => {
     await message.save()
 
     // g. return
-    return new Response(message, {
+    return new Response(JSON.stringify(message), {
       status: 200,
     })
   } catch (error) {
