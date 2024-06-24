@@ -18,7 +18,7 @@ const MessageCard = ({ message }) => {
         if (read) {
           toast.success('Message marked as read!')
         } else {
-          toast.success('Message marked as unread!')
+          toast.info('Message marked as unread!')
         }
       }
     } catch (e) {
