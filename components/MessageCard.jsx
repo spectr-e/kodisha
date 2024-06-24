@@ -1,7 +1,21 @@
+'use client'
+
+import { useEffect, useState } from 'react'
+import { toast } from 'react-toastify'
+
 const MessageCard = ({ message }) => {
+  const [read, setRead] = useState(message.read)
+
+  const handleRead = async () => {}
+
   return (
     <div className='space-y-4'>
       <div className='relative p-4 bg-white border border-gray-200 rounded-md shadow-md'>
+        {!read && (
+          <div className='absolute px-2 py-1 text-white bg-yellow-500 rounded-md top-2 right-2'>
+            New
+          </div>
+        )}
         <h2 className='mb-4 text-xl font-bold'>{message.property.name}</h2>
         <p className='text-gray-700'>{message.body}</p>
 
@@ -27,8 +41,13 @@ const MessageCard = ({ message }) => {
             {new Date(message.createdAt).toLocaleString()}
           </li>
         </ul>
-        <button className='px-3 py-1 mt-4 mr-3 text-white bg-blue-500 rounded-md'>
-          Mark As Read
+        <button
+          onClick={handleRead}
+          className={`px-3 py-1 mt-4 mr-3  ${
+            read ? 'bg-gray-300' : 'bg-blue-500 text-white'
+          } rounded-md`}
+        >
+          {read ? 'Mark as Unread' : 'Mark As Read'}
         </button>
         <button className='px-3 py-1 mt-4 text-white bg-red-500 rounded-md'>
           Delete
