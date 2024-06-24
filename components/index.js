@@ -19,9 +19,11 @@ import PropContactForm from './PropContactForm'
 import SearchForm from './SearchForm'
 import Messages from './Messages'
 import MessageCard from './MessageCard'
+import UnreadCounter from './UnreadCounter'
 
 // exports
 export {
+  UnreadCounter,
   MessageCard,
   Messages,
   ShareBtn,
