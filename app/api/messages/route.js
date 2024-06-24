@@ -20,12 +20,26 @@ export const GET = async (req) => {
         { status: 401 }
       )
     }
-    // c. get the user messages
-    const messages = await Message.find({
+    // c. get the user read messages
+    const readMessages = await Message.find({
       recipient: userId,
+      read: true,
     })
+      .sort({ createdAt: -1 }) // sort messages in ascending order
       .populate('sender', 'name')
       .populate('property', 'name')
+
+    // c. get the user unread messages
+    const unreadMessages = await Message.find({
+      recipient: userId,
+      read: false,
+    })
+      .sort({ createdAt: -1 }) // sort messages in ascending order
+      .populate('sender', 'name')
+      .populate('property', 'name')
+
+    // combine them
+    const messages = [...unreadMessages, ...readMessages]
 
     // d. return the messages
     return new Response(JSON.stringify(messages), {
