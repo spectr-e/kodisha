@@ -22,8 +22,11 @@ import MessageCard from './MessageCard'
 import UnreadCounter from './UnreadCounter'
 import Properties from './Properties'
 import Pagination from './Pagination'
+import Featured from './Featured'
+
 // exports
 export {
+  Featured,
   Pagination,
   Properties,
   UnreadCounter,

@@ -1,4 +1,4 @@
-import { Hero, HomeProps, InfoBoxes } from '@/components'
+import { Featured, Hero, HomeProps, InfoBoxes } from '@/components'
 
 const HomePage = () => {
   return (
@@ -7,6 +7,8 @@ const HomePage = () => {
       <Hero />
       {/* <!-- For Renters & Owners --> */}
       <InfoBoxes />
+      {/* <!-- Featured Properties --> */}
+      <Featured />
       {/* <!-- Random listed Properties --> */}
       <HomeProps />
     </>

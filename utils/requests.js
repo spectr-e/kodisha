@@ -1,7 +1,7 @@
 const apiDomain = process.env.NEXT_PUBLIC_API_DOMAIN || null
 
 // GET All properties
-const fetchProps = async ({ page, limit }) => {
+const fetchProps = async (page = 1, limit = 3) => {
   try {
     // handle domain not available
     if (!apiDomain) {
