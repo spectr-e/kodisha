@@ -3,8 +3,8 @@ import { PropCard } from '.'
 import Link from 'next/link'
 
 const HomeProps = async () => {
-  const properties = await fetchProps()
-  const recentProps = properties
+  const data = await fetchProps()
+  const recentProps = data.properties
     .sort(() => Math.random() - Math.random())
     .slice(0, 3)
 
