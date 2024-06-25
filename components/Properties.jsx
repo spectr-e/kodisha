@@ -11,7 +11,7 @@ const Properties = async () => {
     const fetchData = async () => {
       try {
         const props = await fetchProps()
-        setProperties(props)
+        setProperties(props.properties)
       } catch (e) {
         console.log(e)
       } finally {
