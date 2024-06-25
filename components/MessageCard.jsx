@@ -37,6 +37,8 @@ const MessageCard = ({ message }) => {
       })
       if (res.status === 200) {
         setDeleted(true)
+        setCount((prev) => prev - 1)
+
         toast.success('Message deleted!')
       }
     } catch (e) {
