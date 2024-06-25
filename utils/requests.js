@@ -1,16 +1,19 @@
 const apiDomain = process.env.NEXT_PUBLIC_API_DOMAIN || null
 
 // GET All properties
-const fetchProps = async () => {
+const fetchProps = async ({ page, limit }) => {
   try {
     // handle domain not available
     if (!apiDomain) {
       return []
     }
-    const response = await fetch(`${apiDomain}/properties`, {
-      cache: 'no-store',
-      // Revalidate every 60 seconds
-    })
+    const response = await fetch(
+      `${apiDomain}/properties?page=${page}&limit=${limit}`,
+      {
+        cache: 'no-store',
+        // Revalidate every 60 seconds
+      }
+    )
     if (!response.ok) {
       throw new Error('Failed to fetch data')
     }
@@ -59,7 +62,7 @@ const fetchCords = async (property) => {
     }
 
     const data = await response.json()
-  
+
     return data
   } catch (err) {
     console.log(err)

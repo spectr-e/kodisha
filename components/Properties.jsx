@@ -7,11 +7,17 @@ const Properties = async () => {
   const [properties, setProperties] = useState([])
   const [loading, setLoading] = useState(true)
 
+  // pagination
+  const [page, setPage] = useState(1)
+  const [limit, setLimit] = useState(3)
+  const [totalProps, setTotalProps] = useState(0)
+
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const props = await fetchProps()
+        const props = await fetchProps({ page, limit })
         setProperties(props.properties)
+        setTotalProps(props.total)
       } catch (e) {
         console.log(e)
       } finally {
