@@ -7,8 +7,24 @@ import { getSessionUser } from '@/utils/getSessionUser'
 export const GET = async (request) => {
   try {
     await connectDB()
-    const properties = await Property.find({})
-    return new Response(JSON.stringify(properties), {
+
+    // pagination
+    // get page and limit from url
+    const page = request.nextUrl.searchParams.get('page') || 1
+    const limit = request.nextUrl.searchParams.get('limit') || 3
+    // skip properties that are not on the specified page
+    const skip = (page - 1) * limit
+    // get total properties count
+    const total = await Property.countDocuments({})
+
+    const properties = await Property.find({}).skip(skip).limit(limit)
+
+    const result = {
+      total,
+      properties,
+    }
+
+    return new Response(JSON.stringify(result), {
       status: 200,
     })
   } catch (error) {
