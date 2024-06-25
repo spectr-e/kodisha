@@ -58,9 +58,10 @@ const PropContactForm = ({ property }) => {
   // if user already owns the property, do not display the contact form
   if (session?.user?.id === property.owner) {
     return (
-      <p className='mb-6 text-xl font-bold text-orange-500'>
-        You cannot send message to self!
-      </p>
+      <>
+        <h3 className='mb-6 text-xl font-bold'>Contact Property Manager</h3>
+        <p>You cannot send message to self!</p>
+      </>
     )
   }
 

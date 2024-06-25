@@ -72,6 +72,16 @@ const BookmarkBtn = ({ property }) => {
     }
   }
 
+  // if user already owns the property, do not display the contact form
+  if (userId === property.owner) {
+    return (
+      <>
+        <h3 className='mb-6 text-xl font-bold'>Bookmark Property</h3>
+        <p>You cannot bookmark your own property!</p>
+      </>
+    )
+  }
+
   return !session ? (
     <p className='text-xl font-bold text-center text-red-500'>
       Login to bookmark property
