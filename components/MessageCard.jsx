@@ -1,12 +1,13 @@
 'use client'
 
+import { useGlobalContext } from '@/context/GlobalContext'
 import { useState } from 'react'
 import { toast } from 'react-toastify'
 
 const MessageCard = ({ message }) => {
   const [read, setRead] = useState(message.read)
   const [deleted, setDeleted] = useState(false)
-
+  const { setCount } = useGlobalContext()
   const handleRead = async () => {
     try {
       const res = await fetch(`/api/messages/${message._id}`, {
@@ -16,6 +17,7 @@ const MessageCard = ({ message }) => {
       if (res.status === 200) {
         const { read } = await res.json()
         setRead(read)
+        setCount((prev) => (read ? prev - 1 : prev + 1))
         if (read) {
           toast.success('Message marked as read!')
         } else {

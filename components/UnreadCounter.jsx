@@ -1,8 +1,9 @@
 'use client'
-import { useState, useEffect } from 'react'
+import { useEffect } from 'react'
+import { useGlobalContext } from '@/context/GlobalContext'
 
 const UnreadCounter = ({ session }) => {
-  const [count, setCount] = useState(0)
+  const { count, setCount } = useGlobalContext()
 
   useEffect(() => {
     if (!session) {
