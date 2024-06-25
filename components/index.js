@@ -20,9 +20,11 @@ import SearchForm from './SearchForm'
 import Messages from './Messages'
 import MessageCard from './MessageCard'
 import UnreadCounter from './UnreadCounter'
+import Properties from './Properties'
 
 // exports
 export {
+  Properties,
   UnreadCounter,
   MessageCard,
   Messages,
