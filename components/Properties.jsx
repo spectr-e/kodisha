@@ -28,7 +28,7 @@ const Properties = async () => {
       }
     }
     fetchData()
-  }, [])
+  }, [page, limit])
 
   // sort props by date
   properties.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt))
