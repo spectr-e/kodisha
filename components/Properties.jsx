@@ -1,7 +1,7 @@
 'use client'
 import { fetchProps } from '@/utils/requests'
 import { useEffect, useState } from 'react'
-import { PropCard, Spinner } from '.'
+import { Pagination, PropCard, Spinner } from '.'
 
 const Properties = async () => {
   const [properties, setProperties] = useState([])
@@ -11,6 +11,9 @@ const Properties = async () => {
   const [page, setPage] = useState(1)
   const [limit, setLimit] = useState(3)
   const [totalProps, setTotalProps] = useState(0)
+  const handlPageChange = (newPage) => {
+    setPage(newPage)
+  }
 
   useEffect(() => {
     const fetchData = async () => {
@@ -45,6 +48,14 @@ const Properties = async () => {
           </div>
         )}
       </div>
+
+      {/* <-- pagination --> */}
+      <Pagination
+        page={page}
+        limit={limit}
+        totalProps={totalProps}
+        onPageChange={handlPageChange}
+      />
     </section>
   )
 }
