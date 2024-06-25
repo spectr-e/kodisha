@@ -23,9 +23,10 @@ import UnreadCounter from './UnreadCounter'
 import Properties from './Properties'
 import Pagination from './Pagination'
 import Featured from './Featured'
-
+import FeaturedCard from './FeaturedCard'
 // exports
 export {
+  FeaturedCard,
   Featured,
   Pagination,
   Properties,
