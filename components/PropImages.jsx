@@ -1,3 +1,4 @@
+'use client'
 import Image from 'next/image'
 import { Gallery, Item } from 'react-photoswipe-gallery'
 
@@ -50,6 +51,8 @@ const PropImages = ({ images }) => {
                           width={1800}
                           height={400}
                           priority={true}
+                          ref={ref}
+                          onClick={open}
                         />
                       )}
                     </Item>
