@@ -36,7 +36,7 @@ const Featured = () => {
         <div className='grid grid-cols-1 md:grid-cols-2 gap-6'>
           {featuredProps.length > 0 &&
             featuredProps.map((feature, i) => {
-              return <FeaturedCard key={feature._id} property={feature} />
+              return <FeaturedCard key={i} property={feature} />
             })}
         </div>
       </div>
