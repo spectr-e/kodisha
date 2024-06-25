@@ -1,6 +1,6 @@
 'use client'
 import { FaPaperPlane } from 'react-icons/fa'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { toast } from 'react-toastify'
 import { Spinner } from '.'
 import { useSession } from 'next-auth/react'
@@ -53,6 +53,15 @@ const PropContactForm = ({ property }) => {
         property: property._id,
       })
     }
+  }
+
+  // if user already owns the property, do not display the contact form
+  if (session?.user?.id === property.owner) {
+    return (
+      <p className='mb-6 text-xl font-bold text-orange-500'>
+        You cannot send message to self!
+      </p>
+    )
   }
 
   return loading ? (

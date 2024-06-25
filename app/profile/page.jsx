@@ -24,7 +24,7 @@ const ProfilePage = () => {
       }
 
       try {
-        const resp = await fetch(`api/properties/user/${id}`, {})
+        const resp = await fetch(`api/properties/user/${id}`)
 
         if (resp.status === 200) {
           const data = await resp.json()

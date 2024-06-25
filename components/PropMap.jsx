@@ -39,7 +39,6 @@ const PropMap = ({ property }) => {
         setLng(lng)
         setLat(lat)
         setViewPort({ ...viewPort, latitude: lat, longitude: lng })
-        console.log({ lat, lng })
         setLoading(false)
       } catch (error) {
         console.log(error)
