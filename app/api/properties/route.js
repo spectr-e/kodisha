@@ -5,13 +5,14 @@ import { getSessionUser } from '@/utils/getSessionUser'
 
 // GET /api/properties
 export const GET = async (request) => {
+  // pagination
+  // get page and limit from url
+  const page = request.nextUrl.searchParams.get('page') || 1
+  const limit = request.nextUrl.searchParams.get('limit') || 3
+
   try {
     await connectDB()
 
-    // pagination
-    // get page and limit from url
-    const page = request.nextUrl.searchParams.get('page') || 1
-    const limit = request.nextUrl.searchParams.get('limit') || 3
     // skip properties that are not on the specified page
     const skip = (page - 1) * limit
     // get total properties count
