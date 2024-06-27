@@ -9,7 +9,8 @@ const Featured = () => {
     const fetchProps = async () => {
       try {
         const response = await fetch(`/api/properties/featured`, {
-          cache: 'no-store',
+          next: { revalidate: 60 },
+
           // Revalidate every 60 seconds
         })
 
@@ -29,12 +30,12 @@ const Featured = () => {
 
   return (
     featuredProps.length > 0 && (
-      <section className='bg-blue-50 px-4 pt-6 pb-10'>
-        <div className='container-xl lg:container m-auto'>
-          <h2 className='text-3xl font-bold text-blue-500 mb-6 text-center'>
+      <section className='px-4 pt-6 pb-10 bg-blue-50'>
+        <div className='m-auto container-xl lg:container'>
+          <h2 className='mb-6 text-3xl font-bold text-center text-blue-500'>
             Featured Properties
           </h2>
-          <div className='grid grid-cols-1 md:grid-cols-2 gap-6'>
+          <div className='grid grid-cols-1 gap-6 md:grid-cols-2'>
             {featuredProps.length > 0 &&
               featuredProps.map((feature, i) => {
                 return <FeaturedCard key={i} property={feature} />

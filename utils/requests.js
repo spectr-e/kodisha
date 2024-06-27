@@ -10,7 +10,7 @@ const fetchProps = async (page = 1, limit = 3) => {
     const response = await fetch(
       `${apiDomain}/properties?page=${page}&limit=${limit}`,
       {
-        cache: 'no-store',
+        next: { revalidate: 60 },
         // Revalidate every 60 seconds
       }
     )
@@ -32,7 +32,7 @@ const fetchProp = async (id) => {
       return null
     }
     const response = await fetch(`${apiDomain}/properties/${id}`, {
-      cache: 'no-store',
+      next: { revalidate: 60 },
     })
     if (!response.ok) {
       throw new Error('Failed to fetch data')
