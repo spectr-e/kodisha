@@ -3,7 +3,7 @@ import { PropCard } from '.'
 import Link from 'next/link'
 
 const HomeProps = async () => {
-  const data = await fetchProps()
+  const data = await fetchProps({ page: 1, limit: 3 })
   const recentProps = data.properties
     .sort(() => Math.random() - Math.random())
     .slice(0, 3)
