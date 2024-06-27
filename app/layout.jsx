@@ -4,6 +4,7 @@ import { ToastContainer } from 'react-toastify'
 import { GlobalProvider } from '@/context/GlobalContext'
 import 'react-toastify/dist/ReactToastify.css'
 import 'photoswipe/dist/photoswipe.css'
+import { poppins } from '@/utils/fonts'
 
 export const metadata = {
   title: 'Kodisha | Find The Perfect Rental',
@@ -17,7 +18,7 @@ const MainLayout = ({ children }) => {
     <GlobalProvider>
       <AuthProvider>
         <html lang='en'>
-          <body suppressHydrationWarning={true}>
+          <body className={`${poppins}`}>
             <NavBar />
             {children}
             <ToastContainer />

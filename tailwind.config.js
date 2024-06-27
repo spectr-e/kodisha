@@ -8,7 +8,7 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        sans: ['Poppins', 'sans-serif'],
+        poppins: ['var(--font-poppins)'],
       },
       gridTemplateColumns: {
         '70/30': '70% 28%',
