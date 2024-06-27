@@ -1,5 +1,7 @@
 import { Featured, Hero, HomeProps, InfoBoxes } from '@/components'
 
+export const dynamic = 'force-dynamic'
+
 const HomePage = () => {
   return (
     <>
